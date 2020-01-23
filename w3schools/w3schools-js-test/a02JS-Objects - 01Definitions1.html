@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1 style=text-align:center>JavaScript Objects</h1>
+        <div style="background-color: lightpink">
+            <p>In JavaScript, objects are king. If you understand objects, you understand JavaScript.</p>
+        </div>
+        
+        <p>In JavaScript, almost "everything" is an object.</p>
+        <ul>
+            <li>Booleans can be objects (if defined with the new keyword)</li>
+            <li>Numbers can be objects (if defined with the new keyword)</li>
+            <li>Strings can be objects (if defined with the new keyword)</li>
+            <li>Dates are always objects</li>
+            <li>Maths are always objects</li>
+            <li>Regular expressions are always objects</li>
+            <li>Arrays are always objects</li>
+            <li>Functions are always objects</li>
+            <li>Objects are always objects</li>
+        </ul>
+        <p>All JavaScript values, except primitives, are objects.</p>
+        
+        
+        <h3>JavaScript Primitives</h3>
+        
+        <p>A <b>primitive value</b> is a value that has no properties or methods.</p>
+        <p>A <b>primitive data type</b> is data that has a primitive value.</p>
+        <p>JavaScript defines 5 types of primitive data types:</p>
+        <ul>
+            <li>string</li>
+            <li>number</li>
+            <li>boolean</li>
+            <li>null</li>
+            <li>undefined</li>
+        </ul>
+        
+        
+        <h3>Objects are Variables Containing Variables</h3>
+        
+        <p>JavaScript variables can contain single values:</p>
+        
+        <p>Creating a JavaScript Variable. (Demo 1)</p>
+        <p id="demo"></p>
+        
+        <p>Objects are variables too. But objects can contain many values. </p>
+        <p>The values are written as <b>name : value</b> pairs (name and value separated by a colon).</p>
+        
+        <p>Creating a JavaScript Object. (Demo 2)</p>
+        <p id="demo2"></p>
+        
+        <div style="background-color: lightyellow">
+            <p>A JavaScript object is a collection of <b>named values</b></p>
+        </div>
+        
+        
+        <h3>Object Properties</h3>
+        
+        <p>The named values, in JavaScript objects, are called <b>properties.</b></p>
+        <p>Objects written as name value pairs are similar to:</p>
+        <ul>
+            <li>Associative arrays in PHP</li>
+            <li>Dictionaries in Python</li>
+            <li>Hash tables in C</li>
+            <li>Hash maps in Java</li>
+            <li>Hashes in Ruby and Perl</li>
+        </ul>
+        
+        
+        <h3>Object Methods</h3>
+        
+        <p>Methods are <b>actions</b> that can be performed on objects.</p>
+        <p>Object properties can be both primitive values, other objects, and functions.</p>
+        <p>An <b>object method</b> is an object property containing a <b>function definition.</b></p>
+        
+        <div style="background-color: lightyellow"> 
+            <p><b>JavaScript objects are containers for named values, called properties and methods.</b></p>
+        </div>
+
+        <script>
+            var person = "John Doe";
+            
+            var person2 = {
+                firstName : "John",
+                lastName  : "Doe",
+                age       : 50,
+                eyeColor  : "blue"
+            };
+            
+            document.getElementById("demo").innerHTML = person;
+            
+            document.getElementById("demo2").innerHTML = 
+                person2.firstName + " " + person2.lastName;
+        </script>
+    </body>
+</html>    

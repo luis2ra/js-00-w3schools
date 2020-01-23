@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <h1 style=text-align:center>JavaScript Objects</h1>
+        <div style="background-color: lightpink">
+            <p>In JavaScript, objects are king. If you understand objects, you understand JavaScript.</p>
+        </div>
+        
+        <h3>Creating a JavaScript Object</h3>
+        <p>With JavaScript, you can define and create your own objects.</p>
+        <p>There are different ways to create new objects:</p>
+        <ul>
+            <li>Define and create a single object, using an object literal.</li>
+            <li>Define and create a single object, with the keyword new.</li>
+            <li>Define an object constructor, and then create objects of the constructed type.</li>
+        </ul>
+        <p>In ECMAScript 5, an object can also be created with the <b>function Object.create().</b></p>
+        
+        <h3>Using an Object Literal</h3>
+        <p>This is the easiest way to create a JavaScript Object.</p>
+        <p>Using an object literal, you both define and create an object in one statement.</p>
+        <p>An object literal is a list of name:value pairs (like age:50) inside curly braces {}.</p>
+        
+        <p>Creating a JavaScript Object. (Demo 1)</p>
+        <p id="demo"></p>
+        
+        <h3>Using the JavaScript Keyword new</h3>
+        <p>The following example also creates a new JavaScript object with four properties:</p>
+        
+        <p>Creating a JavaScript Object. (Demo 2 - Otra forma)</p>
+        <p id="demo2"></p>
+        
+        <h3>JavaScript Objects are Mutable</h3>
+        <p>Objects are mutable: They are addressed by reference, not by value.</p>
+        <p>If person is an object, the following statement will not create a copy of person:</p>
+        
+        <div style="background-color: lightpink"> 
+            <p><b>var x = person;</b>      // This will not create a copy of person.</p>
+        </div>
+        <p>The object x is not a copy of person. It is person. Both x and person are the same object.</p>
+        <p>Any changes to x will also change person, because x and person are the same object.</p>
+        <p id="demo3"></p>
+        
+        <p><b>Note:</b> JavaScript variables are not mutable. Only JavaScript objects.</p>
+        
+        <script>
+            var person = {
+                firstName : "John",
+                lastName  : "Doe",
+                age       : 50,
+                eyeColor  : "blue"
+            };
+            
+            var person2 = new Object();
+            person2.firstName = "John";
+            person2.lastName = "Doe";
+            person2.age = 50;
+            person2.eyeColor = "blue";
+            
+            var person3 = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+            
+            var x = person3;
+            x.age = 10;
+
+            document.getElementById("demo").innerHTML = 
+                person.firstName + " is " + person.age + " years old.";
+            
+            document.getElementById("demo2").innerHTML = 
+                person2.firstName + " is " + person2.age + " years old.";
+            
+            document.getElementById("demo3").innerHTML = 
+                person3.firstName + " is " + person3.age + " years old.";
+        </script>
+    </body>
+</html>    

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON Objects</h1>
+        
+        <h3>Object Syntax</h3>
+        
+        <img id='myImage' src="img/json-objects2.png">
+        
+        <p>JSON objects are surrounded by curly braces {}.</p>
+        <p>JSON objects are written in key/value pairs.</p>
+        <p>Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null).</p>
+        <p>Keys and values are separated by a colon.</p>
+        <p>Each key/value pair is separated by a comma.</p>
+        
+        <h3>Accessing Object Values</h3>
+        
+        <p>Access a JSON object using dot notation:</p>
+        <p id="demo1"></p>
+        
+        <p>Access a JSON object using bracket notation:</p>
+        <p id="demo2"></p>
+        
+        <h3>Looping an Object</h3>
+        
+        <p>You can loop through object properties by using the for-in loop:</p>
+        <p id="demo3"></p>
+        
+        <p>Use bracket notation to access the property values:</p>
+        <p id="demo4"></p>
+        
+        <h3>Nested JSON Objects</h3>
+        
+        <p>You can access nested JSON objects by using the dot notation or bracket notation:</p>
+        <p id="demo5"></p>
+        
+        
+        <h3>Modify Values</h3>
+
+        <p>You can use the dot notation to modify any value in a JSON object:</p>
+        <p id="demo6"></p>
+        
+        <p>You can also use the bracket notation to modify a value in a JSON object:</p>
+        <p id="demo7"></p>
+        
+        
+        <h3>Delete Object Properties</h3>
+        
+        <p>How to delete properties of a JSON object.</p>
+        <p id="demo8"></p>
+        
+        <script>
+            var myObj1, x1, x2, y1 = "", y2 = "", y3 = "";
+            var myObj2 = {
+                "name":"John",
+                "age":30,
+                "cars": {
+                    "car1":"Ford",
+                    "car2":"BMW",
+                    "car3":"Fiat"
+                }
+            }
+            var myObj3 = {
+                "name":"Luis",
+                "age":30,
+                "cars": {
+                    "car1":"Toyota",
+                    "car2":"Dodge",
+                    "car3":"Chevrolet"
+                }
+            }
+            var myObj4 = {
+                "name":"Edward",
+                "age":30,
+                "cars": {
+                    "car1":"Hummer",
+                    "car2":"Range Rover",
+                    "car3":"Nissan"
+                }
+            }            
+            var myObj5 = {
+                "name":"John",
+                "age":30,
+                "cars": {
+                    "car1":"Ford Sin Borrar",
+                    "car2":"BMW Sin Borrar",
+                    "car3":"Fiat Sin Borrar"
+                }
+            }
+            
+            myObj1 = { "name":"John", "age":30, "car":null };
+            x1 = myObj1.name;
+            x2 = myObj1["name"];
+            
+            
+            document.getElementById("demo1").innerHTML = x1;
+            document.getElementById("demo2").innerHTML = x2;
+            
+            // Accediendo a las propiedades de un objeto
+            for (x in myObj1) {
+                document.getElementById("demo3").innerHTML += x + "<br>";
+            }
+            
+            // Accediendo a los valores de un objeto
+            for (x in myObj1) {
+                document.getElementById("demo4").innerHTML += myObj1[x] + "<br>";
+            }
+            
+            // JSON Objects anidados
+            document.getElementById("demo5").innerHTML += myObj2.cars.car2 + "<br>";
+            //or:
+            document.getElementById("demo5").innerHTML += myObj2.cars["car2"];
+            
+            // Modificar valores de objetos
+            myObj3.cars.car2 = "Mercedes";
+            for (i in myObj3.cars) {
+                y1 += myObj3.cars[i] + "<br>";
+            }
+            document.getElementById("demo6").innerHTML = y1;
+            
+            myObj4.cars["car2"] = "Renault";
+            for (i in myObj4.cars) {
+                y2 += myObj4.cars[i] + "<br>";
+            }
+            document.getElementById("demo7").innerHTML = y2;
+            
+            // Borrado de datos
+            delete myObj5.cars.car2;
+            for (z in myObj5.cars) {
+                y3 += myObj5.cars[z] + "<br>";
+            }
+            document.getElementById("demo8").innerHTML = y3;
+        </script> 
+    </body>
+</html> 

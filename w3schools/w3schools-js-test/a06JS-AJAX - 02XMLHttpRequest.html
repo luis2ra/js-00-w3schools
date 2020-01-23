@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX - The XMLHttpRequest Object</h1>
+        
+        <div style="background-color: lightpink;"> 
+            <p style="padding: 10px;">The keystone of AJAX is the XMLHttpRequest object. (La piedra angular de AJAX es el objeto XMLHttpRequest.)</p>
+        </div>
+        
+        <h2>The XMLHttpRequest Object</h2>
+    
+        <p>All modern browsers support the XMLHttpRequest object.</p>
+        <p>The XMLHttpRequest object can be used to exchange data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+        
+        <h2>Create an XMLHttpRequest Object</h2>
+        
+        <p>All modern browsers (Chrome, Firefox, IE7+, Edge, Safari, Opera) have a built-in XMLHttpRequest object.</p>
+        <p>Syntax for creating an XMLHttpRequest object:</p>
+        
+        <p><i>variable</i> = <span style="color: blue;">new</span> <b>XMLHttpRequest;</b></p>
+        
+        <h2>Access Across Domains</h2>
+        
+        <p>For security reasons, modern browsers do not allow access across domains.</p>
+        <p>This means that both the web page and the XML file it tries to load, must be located on the same server.</p>
+        <p>The examples on W3Schools all open XML files located on the W3Schools domain.</p>
+        <p>If you want to use the example above on one of your own web pages, the XML files you load must be located on your own server.</p>
+        
+        <h2>Older Browsers (IE5 and IE6)</h2>
+        
+        <p>Old versions of Internet Explorer (5/6) use an ActiveX object instead of the XMLHttpRequest object:</p>
+        
+        <p><i>variable</i> = <span style="color: blue;">new</span> <b>ActiveXObject</b>(<span style="color: red;">&quot;Microsoft.XMLHTTP&quot;</span>);</p>
+        
+        <p>To handle IE5 and IE6, check if the browser supports the XMLHttpRequest object, or else create an ActiveX object:</p>
+        
+        <div id="demo">
+            <h4>The XMLHttpRequest Object</h4>
+            <p>Let AJAX change this text.</p>
+            <button type="button" onclick="loadDoc()">Change Content</button>
+        </div>
+        
+        
+        <h2>XMLHttpRequest Object Methods</h2>
+        
+        <img id='myImage1' src="img/XMLHttpRequest-Methods.png">
+        
+        <h2>XMLHttpRequest Object Properties</h2>
+        
+        <img id='myImage2' src="img/XMLHttpRequest-Properties.png">
+
+        
+        <script>
+            //The function requests data from a web server and displays it:
+            function loadDoc() {
+                var xhttp;
+                
+                if (window.XMLHttpRequest) {
+                    // code for modern browsers
+                    xhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/ajax_info.txt", true);
+                xhttp.send();
+            }
+        </script> 
+    </body>
+</html> 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h1 style="text-align: center;">JavaScript Syntax</h1>
+
+        <h2>JavaScript is Case Sensitive</h2>
+        
+        <p>All JavaScript identifiers are <b>case sensitive</b>.</p>
+        <p>The variables <b>lastName</b> and <b>lastname</b>, are two different variables.</p>
+
+        <p>Try change lastName to lastname.</p>
+
+        <p id="demo"></p>
+
+        <p><b>Note: </b>JavaScript does not interpret <b>VAR</b> or <b>Var</b> as the keyword <b>var</b>.</p>
+        
+        <h2>JavaScript and Camel Case</h2>
+        <pre>        
+Historically, programmers have used different ways of joining multiple words into one variable name:
+
+    Hyphens:
+
+first-name, last-name, master-card, inter-city.
+
+Hyphens are not allowed in JavaScript. They are reserved for subtractions.
+
+    Underscore:
+
+first_name, last_name, master_card, inter_city.
+
+    Upper Camel Case (Pascal Case):
+
+FirstName, LastName, MasterCard, InterCity.
+        </pre>
+        
+        <script>
+            var lastname, lastName;
+            lastName = "Luis";
+            lastname = "Rodolfo";
+            document.getElementById("demo").innerHTML = lastName+" "+lastname;
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON - Introduction (2 of 3)</h1>
+        
+        <div style="background-color: lightpink"> 
+            <p>JSON: JavaScript Object Notation.</p>
+            <p>JSON is a syntax for storing and exchanging data.</p>
+            <p>JSON is text, written with JavaScript object notation.</p>
+        </div>
+        
+        <h2>Receiving Data</h2>
+        
+        <h4>Convert a string written in JSON format, into a JavaScript object.</h4>
+        
+        <p id="demo"></p>
+        
+        <script>
+            var myJSON = '{ "name":"John", "age":31, "city":"New York" }';
+            var myObj = JSON.parse(myJSON);
+            
+            document.getElementById("demo").innerHTML = myObj.name;
+        </script> 
+    </body>
+</html> 

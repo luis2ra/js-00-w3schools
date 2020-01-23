@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON Arrays</h1>
+        
+        <h3>Arrays as JSON Objects</h3>
+        
+        <p>Arrays in JSON are almost the same as arrays in JavaScript.</p>
+        <p>In JSON, array values must be of type string, number, object, array, boolean or <i>null</i>.</p>
+        <p>In JavaScript, array values can be all of the above, plus any other valid JavaScript expression, including functions, dates, and <i>undefined</i>.</p>
+        
+        
+        <h3>Arrays in JSON Objects</h3>
+        
+        <p>Arrays can be values of an object property. You access the array values by using the index number:</p>
+        <p id="demo1"></p>
+        
+        
+        <h3>Looping Through an Array</h3>
+        
+        <p>Looping through an array using a for in loop:</p>
+        <p id="demo2"></p>
+        
+        <p>Loopin through an array using a for loop:</p>
+        <p id="demo3"></p>
+        
+        
+        <h3>Nested Arrays in JSON Objects</h3>
+        
+        <p>Values in an array can also be another array, or even another JSON object. To access arrays inside arrays, use a for-in loop for each array:</p>
+        <p id="demo4"></p>
+        
+        
+        <h3>Modify Array Values</h3>
+
+        <p>How to modify an array value of a JSON object.</p>
+        <p id="demo5"></p>
+        
+        <h3>Delete Array Items</h3>
+        
+        <p>How to delete properties of an array.</p>
+        <p id="demo6"></p>
+        
+        <script>
+            var myObj1, x1;
+            var myObj2, i, x2 = "";
+            var myObj3, j, x3 = "";
+            var myObj4, x4 = "";
+            var myObj5, x5 = "";
+            var myObj6, x6 = "";
+            
+            // Para el ejemplo 1
+            myObj1 = {
+                "name":"John",
+                "age":30,
+                "cars":[ "Ford", "BMW", "Fiat" ]
+            };
+            x1 = myObj1.cars[0];
+            
+            // Para el ejemplo 2
+            myObj2 = {
+                "name":"John",
+                "age":30,
+                "cars":[ "Ford", "BMW", "Fiat" ]
+            };
+
+            for (i in myObj2.cars) {
+                x2 += myObj2.cars[i] + "<br>";
+            }
+            
+            // Para el ejemplo 3
+            myObj3 = {
+                "name":"John",
+                "age":30,
+                "cars":[ "Ford", "BMW", "Fiat" ]
+            };
+
+            for (j = 0; j < myObj3.cars.length; j++) {
+                x3 += myObj3.cars[j] + "<br>";
+            }
+            
+            // Para el ejemplo 4
+            myObj4 = {
+                "name":"John",
+                "age":30,
+                "cars": [
+                    { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+                    { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+                    { "name":"Fiat", "models":[ "500", "Panda" ] }
+                ]
+            }
+
+            for (i in myObj4.cars) {
+                x4 += "<h4>" + myObj4.cars[i].name + "</h4>";
+                for (j in myObj4.cars[i].models) {
+                    x4 += myObj4.cars[i].models[j] + "<br>";
+                }
+            }
+            
+            // Para el ejemplo 5
+            myObj5 = {
+                "name":"John",
+                "age":30,
+                "cars":[ "Ford", "BMW", "Fiat" ]
+            };
+            myObj5.cars[1] = "Mercedes";
+
+            for (i in myObj5.cars) {
+                x5 += myObj5.cars[i] + "<br>";
+            }
+            
+            // Para el ejemplo 6
+            myObj6 = {
+              "name":"John",
+              "age":30,
+              "cars": ["Ford","BMW","Fiat"]
+            }
+            delete myObj6.cars[1];
+
+            for (i in myObj6.cars) {
+                x6 += myObj6.cars[i] + "<br>";
+            }
+            
+            document.getElementById("demo1").innerHTML = x1;
+            
+            document.getElementById("demo2").innerHTML = x2;
+            
+            document.getElementById("demo3").innerHTML = x3;
+            
+            document.getElementById("demo4").innerHTML = x4;
+            
+            document.getElementById("demo5").innerHTML = x5;
+            
+            document.getElementById("demo6").innerHTML = x6;
+        </script> 
+    </body>
+</html> 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+        
+        <style>
+            table,th,td {
+                border : 1px solid black;
+                border-collapse: collapse;
+            }
+            th,td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX XML Example</h1>
+        
+        <div style="background-color: lightpink;"> 
+            <p>AJAX can be used for interactive communication with an XML file.</p>
+            <p>The following example will demonstrate how a web page can fetch information from an XML file with AJAX.</p>
+        </div>
+        
+        <h2>AJAX XML Example</h2>
+    
+        <p>When a user clicks on the &quot;Get CD info&quot; button above, the loadDoc() function is executed.</p>
+        <p>The loadDoc() function creates an XMLHttpRequest object, adds the function to be executed when the server response is ready, and sends the request off to the server.</p>
+        <p>When the server response is ready, an HTML table is built, nodes (elements) are extracted from the XML file, and it finally updates the element &quot;demo&quot; with the HTML table filled with XML data:</p>
+
+        <h4>The XMLHttpRequest Object</h4>
+
+        <button type="button" onclick="loadDoc()">Get my CD collection</button>
+        <br><br>
+        <table id="demo"></table>
+        
+        
+        <h2>The XML File</h2>
+        
+        <p>The XML file used in the example above looks like this: &quot;cd_catalog.xml&quot;.</p>
+        
+        <script>
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this);
+                    }
+                };
+                xhttp.open("GET", "js/cd_catalog.xml", true);
+                xhttp.send();
+            }
+            
+            function myFunction(xml) {
+                var i;
+                var xmlDoc = xml.responseXML;
+                var table="<tr><th>Artist</th><th>Title</th></tr>";
+                var x = xmlDoc.getElementsByTagName("CD");
+                
+                for (i = 0; i <x.length; i++) {
+                    table += "<tr><td>" + 
+                        x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                        "</td><td>" + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                        "</td></tr>";
+                }
+                document.getElementById("demo").innerHTML = table;
+            }
+        </script> 
+    </body>
+</html> 

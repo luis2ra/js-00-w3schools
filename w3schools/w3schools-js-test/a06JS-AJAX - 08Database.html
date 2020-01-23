@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+        
+        <style>
+            table,th,td {
+                border : 1px solid black;
+                border-collapse: collapse;
+            }
+            th,td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX Database Example</h1>
+        
+        <div style="background-color: lightpink;"> 
+            <p style="padding: 10px;">AJAX can be used for interactive communication with a database.</p>
+        </div>
+        
+        <h2>AJAX Database Example</h2>
+        
+        <p>The following example will demonstrate how a web page can fetch information from a database with AJAX:</p>
+        
+        <h4>The XMLHttpRequest Object</h4>
+
+        <form action=""> 
+            <select name="customers" onchange="showCustomer(this.value)">
+                <option value="">Select a customer:</option>
+                <option value="ALFKI">Alfreds Futterkiste</option>
+                <option value="NORTS ">North/South</option>
+                <option value="WOLZA">Wolski Zajazd</option>
+            </select>
+        </form>
+        <br>
+        <div id="txtHint">Customer info will be listed here...</div>
+        
+        <p><b><i>Code explanation:</i></b></p>
+        
+        <p>When a user selects a customer in the dropdown list above, a function called &quot;showCustomer()&quot; is executed. The function is triggered by the &quot;onchange&quot; event.</p>
+        
+        <p>The showCustomer() function does the following:</p>
+        <ul>
+            <li>Check if a customer is selected</li>
+            <li>Create an XMLHttpRequest object</li>
+            <li>Create the function to be executed when the server response is ready</li>
+            <li>Send the request off to a file on the server</li>
+            <li>Notice that a parameter (q) is added to the URL (with the content of the dropdown list)</li>
+        </ul>
+        
+        <h2>The AJAX Server Page</h2>
+        
+        <p>The page on the server called by the JavaScript above is an ASP file called &quot;getcustomer.asp&quot;.</p>
+        
+        <p>The server file could easily be rewritten in PHP, or some other server languages.</p>
+        
+        <p>The source code in &quot;getcustomer.asp&quot; runs a query against a database, and returns the result in an HTML table.</p>
+        <script>
+
+            function showCustomer(str) {
+                var xhttp;    
+                if (str == "") {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                }
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "getcustomer.asp?q="+str, true);
+                xhttp.send();
+            }
+
+        </script> 
+    </body>
+</html> 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Dates</h2>
+
+        <h3>Date Methods</h3>
+        <p>When a Date object is created, a number of methods allow you to operate on it.</p>
+        <p>Date methods allow you to get and set the year, month, day, hour, minute, second, and millisecond of objects, using either local time or UTC (universal, or GMT) time.</p>
+        
+        <h3>Displaying Dates</h3>
+        <p>When you display a date object in HTML, it is automatically converted to a string, with the toString() method.</p>
+        <p id="demo"></p>
+        <p id="demo2"></p>
+        
+        <p>The <b>toUTCString()</b> method converts a date to a UTC string (date display standard):</p>
+        <p id="demo3"></p>
+        
+        <p>The <b>toDateString()</b> method converts a date to a more readable format:</p>
+        <p id="demo4"></p>
+        
+        <script>
+            var d = new Date();
+            
+            document.getElementById("demo").innerHTML = d;
+            // esta linea es equivalente a la anterior
+            document.getElementById("demo2").innerHTML = d.toString();
+            document.getElementById("demo3").innerHTML = d.toUTCString();
+            document.getElementById("demo4").innerHTML = d.toDateString();
+        </script>
+
+    </body>
+</html>

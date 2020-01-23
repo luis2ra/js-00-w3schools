@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS BOM</title>
+        <meta charset="utf-8">
+        
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align:center;">JavaScript Popup Boxes</h1>
+        
+        <p>JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.</p>
+        
+        
+        <h2>Alert Box</h2>
+        <p>An alert box is often used if you want to make sure information comes through to the user.</p>
+        <p>When an alert box pops up, the user will have to click &quot;OK&quot; to proceed. </p>
+
+        <h3>Syntax</h3>
+        
+        <p><b>window.alert(<span style="color: red;">&quot;sometext&quot;</span>);</b></p>
+        <button onclick="myFunctionAlertBox()">Pulsa Aquí ! ! !</button>
+        
+        
+        <h2>Confirm Box</h2>
+        
+        <p>A confirm box is often used if you want the user to verify or accept something.</p>
+        <p>When a confirm box pops up, the user will have to click either &quot;OK&quot; or &quot;Cancel&quot; to proceed.</p>
+        <p>If the user clicks &quot;OK&quot;, the box returns true. If the user clicks &quot;Cancel&quot;, the box returns false.</p>
+        
+        <h3>Syntax</h3>
+        
+        <p><b>window.confirm(<span style="color: red;">&quot;sometext&quot;</span>);</b></p>
+        
+        <button onclick="myFunctionConfirmBox()">Try it</button>
+        <p id="demo1"></p>
+        
+        
+        <h2>Prompt Box</h2>
+        
+        <p>A prompt box is often used if you want the user to input a value before entering a page.</p>
+        <p>When a prompt box pops up, the user will have to click either &quot;OK&quot; or &quot;Cancel&quot; to proceed after entering an input value.</p>
+        <p>If the user clicks &quot;OK&quot; the box returns the input value. If the user clicks &quot;Cancel&quot; the box returns null.</p>
+        
+        <h3>Syntax</h3>
+        
+        <p><b>window.prompt(<span style="color: red;">&quot;sometext&quot;, &quot;defaultText&quot;</span>);</b></p>
+        
+        <button onclick="myFunctionPromptBox()">Try it</button>
+
+        <p id="demo2"></p>
+        
+        
+        <h3>Line Breaks</h3>
+        
+        <p>To display line breaks inside a popup box, use a back-slash followed by the character n.</p>
+
+        <p>Line-breaks in a popup box.</p>
+
+        <button onclick="alert('Hello\nHow are you?')">Try it</button>
+        
+        <script>
+            
+            function myFunctionAlertBox() {
+                alert("I am an alert box! LUIS ALFONSO!");
+            }
+            
+            function myFunctionConfirmBox() {
+                var txt;
+                if (confirm("Press a button!")) {
+                    txt = "You pressed OK!";
+                } else {
+                    txt = "You pressed Cancel!";
+                }
+                document.getElementById("demo1").innerHTML = txt;
+            }
+            
+            function myFunctionPromptBox() {
+                var txt;
+                var person = prompt("Please enter your name:", "Harry Potter");
+                if (person == null || person == "") {
+                    txt = "User cancelled the prompt.";
+                } else {
+                    txt = "Hello " + person + "! How are you today?";
+                }
+                document.getElementById("demo2").innerHTML = txt;
+            }
+            
+        </script>
+    </body>
+</html>

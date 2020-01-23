@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS BOM</title>
+        <meta charset="utf-8">
+        
+        <script>
+            <!-- Standard Scroll Clock by kurt.grigg@virgin.net
+            var H='....';
+            var H=H.split('');
+            var M='.....';
+            var M=M.split('');
+            var S='......';
+            var S=S.split('');
+            var Ypos=0;
+            var Xpos=0;
+            var Ybase=8;
+            var Xbase=8;
+            var dots=12;
+
+            function clock(){
+                var time=new Date ();
+                var secs=time.getSeconds();
+                var sec=-1.57 + Math.PI * secs/30;
+                var mins=time.getMinutes();
+                var min=-1.57 + Math.PI * mins/30;
+                var hr=time.getHours();
+                var hrs=-1.57 + Math.PI * hr/6 + Math.PI*parseInt(time.getMinutes())/360;
+                for (i=0; i < dots; ++i){
+                    document.getElementById("dig" + (i+1)).style.top=0-15+40*Math.sin(-0.49+dots+i/1.9).toString() + "px";
+                    document.getElementById("dig" + (i+1)).style.left=0-14+40*Math.cos(-0.49+dots+i/1.9).toString() + "px";
+                }
+                for (i=0; i < S.length; i++){
+                    document.getElementById("sec" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(sec).toString() + "px";
+                    document.getElementById("sec" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(sec).toString() + "px";
+                }
+                for (i=0; i < M.length; i++){
+                    document.getElementById("min" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(min).toString() + "px";
+                    document.getElementById("min" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(min).toString() + "px";
+                }
+                for (i=0; i < H.length; i++){
+                    document.getElementById("hour" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(hrs).toString() + "px";
+                    document.getElementById("hour" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(hrs).toString() + "px";
+                } 
+                setTimeout(clock, 50);
+            }
+            //-->
+        </script>
+        
+        <style type="text/css">
+            div.dig, div.hour, div.min, div.sec {
+                position:absolute;
+            }
+            div.hour, div.min, div.sec {
+                width:2px;
+                height:2px;
+                font-size:2px;
+            }
+            div.dig {
+                width:30px;
+                height:30px;
+                font-family:arial,verdana,sans-serif;
+                font-size:10px;
+                color:#000000;
+                text-align:center;
+                padding-top:10px
+            }
+            div.min {
+                background:#0000FF;
+            }
+            div.hour {
+                background:#000000;
+            }
+            div.sec {
+                background:#FF0000;
+            }
+        </style>
+    </head>
+    <body onload="clock()">
+        <h1 style="text-align:center;">JavaScript Timing Events</h1>
+        
+        <hr>
+            <div class="w3-example">
+                <table><tr>
+                    <td><div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+                        <div id="dig1" class="dig">1</div>
+                        <div id="dig2" class="dig">2</div>
+                        <div id="dig3" class="dig">3</div>
+                        <div id="dig4" class="dig">4</div>
+                        <div id="dig5" class="dig">5</div>
+                        <div id="dig6" class="dig">6</div>
+                        <div id="dig7" class="dig">7</div>
+                        <div id="dig8" class="dig">8</div>
+                        <div id="dig9" class="dig">9</div>
+                        <div id="dig10" class="dig">10</div>
+                        <div id="dig11" class="dig">11</div>
+                        <div id="dig12" class="dig">12</div>
+
+                        <div id="hour1" class="hour"></div>
+                        <div id="hour2" class="hour"></div>
+                        <div id="hour3" class="hour"></div>
+                        <div id="hour4" class="hour"></div>
+
+                        <div id="min1" class="min"></div>
+                        <div id="min2" class="min"></div>
+                        <div id="min3" class="min"></div>
+                        <div id="min4" class="min"></div>
+                        <div id="min5" class="min"></div>
+
+                        <div id="sec1" class="sec"></div>
+                        <div id="sec2" class="sec"></div>
+                        <div id="sec3" class="sec"></div>
+                        <div id="sec4" class="sec"></div>
+                        <div id="sec5" class="sec"></div>
+                        <div id="sec6" class="sec"></div>
+                    </div></td>
+                    <td>
+                        <p class="intro">JavaScript can be executed in time-intervals.</p>
+                        <p class="intro">This is called timing events.</p>
+                    </td>
+                </tr></table>
+            </div>
+        <hr>
+        
+        
+        
+        <p>JavaScript can be executed in time-intervals. This is called timing events.</p>
+        
+        
+        <h2>Timing Events</h2>
+        
+        <p>The window object allows execution of code at specified time intervals.</p>
+        <p>These time intervals are called timing events.</p>
+        <p>The two key methods to use with JavaScript are:</p>
+        <ul>
+            <li><b>setTimeout</b>(<i>function, milliseconds</i>)<br>
+            Executes a function, after waiting a specified number of milliseconds.
+            </li>
+            <li><b>setInterval</b>(<i>function, milliseconds</i>)<br>
+            Same as setTimeout(), but repeats the execution of the function continuously.
+            </li>
+        </ul>
+        <p><b>Note:</b> The setTimeout() and setInterval() are both methods of the HTML DOM Window object.</p>
+        
+        
+        <h2>The setTimeout() Method</h2>
+
+        <p><b>window.setTimeout(<span style="font-style: italic;"> function, milliseconds </span>);</b></p>
+        <p>The <b>window.setTimeout()</b> method can be written without the window prefix.</p>
+        <p>The first parameter is a function to be executed.</p>
+        <p>The second parameter indicates the number of milliseconds before execution.</p>
+        
+        <p>Click &quot;Try it&quot;. Wait 3 seconds, and the page will alert &quot;Hello&quot;.</p>
+
+        <button onclick="setTimeout(myFunction, 3000);">Try it</button>
+        
+        
+        <h2>How to Stop the Execution?</h2>
+        
+        <p>The clearTimeout() method stops the execution of the function specified in setTimeout().</p>
+        
+        <p><b>window.clearTimeout(<span style="font-style: italic;"> timeoutVariable </span>)</b></p>
+        
+        <p>The <b>window.clearTimeout()</b> method can be written without the window prefix.</p>
+        
+        <p>The clearTimeout() method uses the variable returned from setTimeout():</p>
+        
+        <p><b>myVar = setTimeout(<span style="font-style: italic;"> function, milliseconds </span>);</b></p>
+        <p><b>clearTimeout(<span style="font-style: italic"> myVar </span>);</b></p>
+        
+        <p>If the function has not already been executed, you can stop the execution by calling the clearTimeout() method:</p>
+        
+        <p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+        <p>Click "Stop" to prevent the first function to execute.</p>
+        <p>(You must click "Stop" before the 3 seconds are up.)</p>
+
+        <button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+
+        <button onclick="clearTimeout(myVar)">Stop it</button>
+        
+        
+        <h2>The setInterval() Method</h2>
+        
+        <p>The setInterval() method repeats a given function at every given time-interval.</p>
+        
+        <p><b>window.setInterval(<span style="font-style: italic;"> function, milliseconds </span>);</b></p>
+        <p>The <b>window.setInterval()</b> method can be written without the window prefix.</p>
+        <p>The first parameter is the function to be executed.</p>
+        <p>The second parameter indicates the length of the time-interval between each execution.</p>
+        <p>This example executes a function called "myTimer" once every second (like a digital watch).</p>
+        
+        <p>A script on this page starts this clock:</p>
+        <p id="demo"></p>
+        
+        
+        <h2>How to Stop the Execution?</h2>
+        
+        <p>The clearInterval() method stops the execution of the function specified the setInterval() method.</p>
+        
+        <p><b>window.clearInterval(<span style="font-style: italic;"> timerVariable </span>)</b></p>
+        
+        <p>The <b>window.clearInterval()</b> method can be written without the window prefix.</p>
+        
+        <p>The clearInterval() method uses the variable returned from setInterval():</p>
+        
+        <p><b>myVar = setInterval(<span style="font-style: italic;"> function, milliseconds </span>);</b></p>
+        <p><b>clearInterval(<span style="font-style: italic;"> myVar </span>);</b></p>
+        
+        <p>A script on this page starts this clock:</p>
+        <p id="demo2"></p>
+        <button onclick="clearInterval(myVar2)">Stop time</button>
+        
+        <script>
+            var myVar = setInterval(myTimer, 1000);
+            var myVar2 = setInterval(myTimer2 ,1000);
+            
+            function myFunction() {
+                alert('Hello');
+            }
+            
+            function myTimer() {
+                var d = new Date();
+                document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+            }
+            
+            function myTimer2() {
+                var d2 = new Date();
+                document.getElementById("demo2").innerHTML = d2.toLocaleTimeString();
+            }
+            
+        </script>
+    </body>
+</html>

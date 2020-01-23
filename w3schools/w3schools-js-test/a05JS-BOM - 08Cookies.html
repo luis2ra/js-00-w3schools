@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS BOM</title>
+        <meta charset="utf-8">
+        
+        <style>
+            table,th,td {
+                border : 3px solid black;
+                border-collapse: collapse;
+            }
+            th,td {
+                padding: 5px;
+            }
+        </style>
+        
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires=" + d.toGMTString(); 
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+            
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            
+            function checkCookie() {
+                var user=getCookie("username");
+                if (user != "") {
+                    alert("Welcome again " + user);
+                } else {
+                    user = prompt("Please enter your name:","");
+                    if (user != "" && user != null) {
+                       setCookie("username", user, 30);
+                    }
+                }
+            }
+        
+        </script>
+    </head>
+    <body onload="checkCookie()">
+        <h1 style=text-align:center>JavaScript Cookies</h1>
+        
+        <p>Cookies let you store user information in web pages.</p>
+        
+        
+        <h3>What are Cookies?</h3>
+        
+        <p>Cookies are data, stored in small text files, on your computer.</p>
+        <p>When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.</p>
+        <p>Cookies were invented to solve the problem &quot;how to remember information about the user&quot;:</p>
+        <ul>
+            <li>When a user visits a web page, his name can be stored in a cookie.</li>
+            <li>Next time the user visits the page, the cookie &quot;remembers&quot; his name.</li>
+        </ul>
+        <p>Cookies are saved in name-value pairs like:</p>
+        
+        <table>
+            <tr><td>username = John Doe</td></tr>
+        </table>
+        
+        <p>When a browser requests a web page from a server, cookies belonging to the page is added to the request. This way the server gets the necessary data to &quot;remember&quot; information about users.</p>
+        
+        <p><b>Note: </b>None of the examples below will work if your browser has local cookies support turned off.</p>
+        
+        
+        <h3>Create a Cookie with JavaScript</h3>
+        
+        <p>JavaScript can create, read, and delete cookies with the document.cookie property.</p>
+        <p>With JavaScript, a cookie can be created like this:</p>
+        
+        <p><b>document.cookie =<span style="color:red;">&quot;username=John Doe&quot;</span>;</b></p>
+        
+        <p>You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:</p>
+        
+        <p><b>document.cookie =<span style="color:red;">&quot;username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC&quot;</span>;</b></p>
+        
+        <p>With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.</p>
+        
+        <p><b>document.cookie =<span style="color:red;">&quot;username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/&quot;</span>;</b></p>
+        
+        
+        <h3>Read a Cookie with JavaScript</h3>
+        
+        <p>With JavaScript, cookies can be read like this:</p>
+        <p><b><span style="color:blue;">var</span> x = document.cookie;</b></p>
+        <p><b>Note: </b>document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;</p>
+        
+        
+        <h3>Change a Cookie with JavaScript</h3>
+        
+        <p>With JavaScript, you can change a cookie the same way as you create it:</p>
+        <p><b>document.cookie =<span style="color:red;">&quot;username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/&quot;</span>;</b></p>
+        <p>The old cookie is overwritten.</p>
+        
+        
+        <h3>Delete a Cookie with JavaScript</h3>
+        
+        <p>Deleting a cookie is very simple. You don't have to specify a cookie value when you delete a cookie. Just set the expires parameter to a passed date:</p>
+        
+        <p><b>document.cookie =<span style="color:red;">&quot;username=; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/&quot;</span>;</b></p>
+        
+        <p><b>Note: </b>You should define the cookie path to ensure that you delete the right cookie. Some browsers will not let you delete a cookie if you don't specify the path.</p>
+        
+        
+        <h3>The Cookie String</h3>
+        
+        <p>The document.cookie property looks like a normal text string. But it is not.</p>
+        <p>Even if you write a whole cookie string to document.cookie, when you read it out again, you can only see the name-value pair of it.</p>
+        <p>If you set a new cookie, older cookies are not overwritten. The new cookie is added to document.cookie, so if you read document.cookie again you will get something like:</p>
+        <p>cookie1 = value; cookie2 = value;</p>
+        <p>If you want to find the value of one specified cookie, you must write a JavaScript function that searches for the cookie value in the cookie string.</p>
+        
+        
+        <h3>JavaScript Cookie Example</h3>
+        
+        <p>In the example to follow, we will create a cookie that stores the name of a visitor.</p>
+        <p>The first time a visitor arrives to the web page, he will be asked to fill in his name. The name is then stored in a cookie.</p>
+        <p>The next time the visitor arrives at the same page, he will get a welcome message.</p>
+        <p>For the example we will create 3 JavaScript functions:</p>
+        <ol>
+            <li>A function to set a cookie value.</li>
+            <li>A function to get a cookie value.</li>
+            <li>A function to check a cookie value.</li>
+        </ol>
+        
+        <h3>A Function to Set a Cookie</h3>
+        
+        <p>First, we create a function that stores the name of the visitor in a cookie variable:</p>
+        <img id='myImage1' src="img/Cookies-example1.png">
+        
+        <p><b>Example explained:</b></p>
+        <p>The parameters of the function above are the name of the cookie (cname), the value of the cookie (cvalue), and the number of days until the cookie should expire (exdays).</p>
+        <p>The function sets a cookie by adding together the cookie name, the cookie value, and the expires string.</p>
+        
+        
+        <h3>A Function to Get a Cookie</h3>
+        
+        <p>Then, we create a function that returns the value of a specified cookie:</p>
+        <img id='myImage2' src="img/Cookies-example2.png">
+        
+        <p><b>Function explained:</b></p>
+        <p>Take the cookiename as parameter (cname).</p>
+        <p>Create a variable (name) with the text to search for (cname + &quot;=&quot;).</p>
+        <p>Decode the cookie string, to handle cookies with special characters, e.g. '$'</p>
+        <p>Split document.cookie on semicolons into an array called ca (ca = decodedCookie.split(';')).</p>
+        <p>Loop through the ca array (i = 0; i &lt; ca.length; i++), and read out each value c = ca[i]).</p>
+        <p>If the cookie is found (c.indexOf(name) == 0), return the value of the cookie (c.substring(name.length, c.length).</p>
+        <p>If the cookie is not found, return &quot;&quot;.</p>
+        
+        
+        <h3>A Function to Check a Cookie</h3>
+
+        <p>Last, we create the function that checks if a cookie is set.</p>
+        <p>If the cookie is set it will display a greeting.</p>
+        <p>If the cookie is not set, it will display a prompt box, asking for the name of the user, and stores the username cookie for 365 days, by calling the setCookie function:</p>
+        <img id='myImage3' src="img/Cookies-example3.png">
+        
+        <h3>All Together Now</h3>
+        
+        <p>The example of this page runs the checkCookie() function when the page loads.</p>
+    </body>
+</html>

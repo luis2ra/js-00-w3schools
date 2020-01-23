@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Date Methods</h2>
+
+        <p>Date methods let you get and set date values (years, months, days, hours, minutes, seconds, milliseconds)</p>
+        
+        <h3>Date Set Methods</h3>
+        <p>Set methods are used for setting a part of a date. Here are the most common (alphabetically): setDate(), setFullYear(), setHours(), setMilliseconds(), setMinutes(), setMonth(), setSeconds() and setTime().</p>
+        
+        <h3>The setFullYear() Method</h3>
+        <p>The setFullYear() method sets a date object to a special date.</p>
+        <p>Remember that JavaScript counts months from 0 to 11. Month 10 is November.</p>
+        <p id="demo"></p>
+        
+        <h3>The setDate() Method</h3>
+        <p>The setDate() method sets the date of a month.</p>
+        <p id="demo2"></p>
+        
+        <p>The setDate() method can be used to add days to a date.</p>
+        <p id="demo3"></p>
+        
+        <script>
+            var d = new Date();
+            var d2 = new Date();
+            var d3 = new Date();
+            
+            d.setFullYear(2020, 0, 14);
+            document.getElementById("demo").innerHTML = d;
+            
+            d2.setDate(15);
+            document.getElementById("demo2").innerHTML = d2;
+            
+            d3.setDate(d3.getDate() + 50);
+            document.getElementById("demo3").innerHTML = d3;
+        </script>
+
+    </body>
+</html>

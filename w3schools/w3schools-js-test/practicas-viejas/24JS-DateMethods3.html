@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Date Methods</h2>
+
+        <p>Date methods let you get and set date values (years, months, days, hours, minutes, seconds, milliseconds)</p>
+        
+        <h3>Date Input - Parsing Dates</h3>
+        <p>If you have a valid date string, you can use the Date.parse() method to convert it to milliseconds.</p>
+        
+        <p><b>Date.parse()</b> returns the number of milliseconds between the date and January 1, 1970:</p>
+        <p id="demo"></p>
+        
+        <p><b>Date.parse(string)</b> returns milliseconds.</p>
+        <p>You can use the return value to convert the string to a date object:</p>
+        <p id="demo2"></p>
+        
+        <h3>Compare Dates</h3>
+        <p>Dates can easily be compared.</p>
+        <p>The following example compares today's date with January 14, 2100:</p>
+        <p id="demo3"></p>
+        
+        <script>
+            var msec = Date.parse("March 21, 2012");
+            var d = new Date(msec);
+            var today = new Date();
+            var someday = new Date();
+            var text;
+            
+            document.getElementById("demo").innerHTML = msec;
+            document.getElementById("demo2").innerHTML = d;
+            
+            someday.setFullYear(2100, 0, 14);
+            if (someday > today) {
+                text = "Today is <b>before</b> January 14, 2100.";
+            } else {
+                text = "Today is <b>after</b> January 14, 2100.";
+            }
+            document.getElementById("demo3").innerHTML = text;
+        </script>
+
+    </body>
+</html>

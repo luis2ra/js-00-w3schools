@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <h1 style=text-align:center>JavaScript Forms</h1>
+        
+        <h3>Automatic HTML Form Validation</h3>
+        
+        <p>HTML form validation can be performed automatically by the browser:</p>
+        
+        <p>If a form field (fname) is empty, the <b>required attribute</b> prevents this form from being submitted: </p>
+        
+        <form action="/action_page.php" method="post">
+            <input type="text" name="fname" required>
+            <input type="submit" value="Submit">
+        </form>
+        
+        <p>If you click submit, without filling out the text field, your browser will display an error message.</p>
+        
+        <h3>Data Validation</h3>
+        <p>Data validation is the process of ensuring that user input is clean, correct, and useful.</p>
+        <p>Typical validation tasks are:</p>
+        <ul>
+            <li>has the user filled in all required fields?</li>
+            <li>has the user entered a valid date?</li>
+            <li>has the user entered text in a numeric field?</li>
+        </ul>
+        <p>Most often, the purpose of data validation is to ensure correct user input.</p>
+        <p>Validation can be defined by many different methods, and deployed in many different ways.</p>
+        <p><b>Server side</b> validation is performed by a web server, after input has been sent to the server.</p>
+        <p><b>Client side</b> validation is performed by a web browser, before input is sent to a web server.</p>
+        
+        <h3>HTML Constraint Validation</h3>
+        <p>HTML5 introduced a new HTML validation concept called constraint validation.</p>
+        <p>HTML constraint validation is based on:</p>
+        <ul>
+            <li>Constraint validation <b>HTML Input Attributes</b></li>
+            <li>Constraint validation <b>CSS Pseudo Selectors</b></li>
+            <li>Constraint validation <b>DOM Properties and Methods</b></li>
+        </ul>
+    </body>
+</html>    

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON - Introduction (3 of 3)</h1>
+        
+        <div style="background-color: lightpink"> 
+            <p>JSON: JavaScript Object Notation.</p>
+            <p>JSON is a syntax for storing and exchanging data.</p>
+            <p>JSON is text, written with JavaScript object notation.</p>
+        </div>
+        
+        
+        <h2>Storing Data</h2>
+        
+        <h4>Store and retrieve data from local storage.</h4>
+        <p id="demo1"></p>
+        
+        <p id="demo2"></p>
+        
+        <script>
+            var myObj, myJSON, text, obj;
+
+            //Storing data:
+            myObj = { "name":"John", "age":31, "city":"New York" };
+            myJSON = JSON.stringify(myObj);
+            localStorage.setItem("testJSON", myJSON);
+
+            //Retrieving data:
+            text = localStorage.getItem("testJSON");
+            document.getElementById("demo1").innerHTML = text;
+            
+            obj = JSON.parse(text);
+            document.getElementById("demo2").innerHTML = obj.name;
+        </script> 
+    </body>
+</html> 

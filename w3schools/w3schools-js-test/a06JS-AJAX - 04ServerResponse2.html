@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX - Server Response</h1>
+        
+        
+        <h2>The onreadystatechange Property</h2>
+    
+        <p>The <b>readyState</b> property holds the status of the XMLHttpRequest.</p>
+        <p>The <b>onreadystatechange</b> property defines a function to be executed when the readyState changes.</p>
+        <p>The <b>status</b> property and the <b>statusText</b> property holds the status of the XMLHttpRequest object.</p>
+        <img id='myImage1' src="img/onreadystatechangeProperties.png">
+        
+        <p>The onreadystatechange function is called every time the readyState changes.</p>
+        <p>When readyState is 4 and status is 200, the response is ready.</p>
+        <div style="background-color: lightpink;"> 
+            <p style="padding: 10px;">The onreadystatechange event is triggered four times (1-4), one time for each change in the readyState.</p>
+        </div>
+        
+        
+        <h2>Using a Callback Function</h2>
+        
+        <p>A callback function is a function passed as a parameter to another function.</p>
+        <p>If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest object, and one callback function for each AJAX task.</p>
+        <p>The function call should contain the URL and what function to call when the response is ready.</p>
+        
+        <div id="demo1">
+            <h4>The XMLHttpRequest Object</h4>
+            <button type="button" onclick="loadDoc1('js/ajax_info.txt', myFunction)">Change Content</button>
+        </div>
+        
+        <h2>Server Response Properties &amp; Methods</h2>
+            
+        <img id='myImage2' src="img/serverResponseProperties&Methods.png">
+        
+        
+        <h2>The responseText Property</h2>
+        
+        <p>The <b>responseText</b> property returns the server response as a JavaScript string, and you can use it accordingly:</p>
+        
+        <p><b>document.getElementById(<span style="color: red;">&quot;demo&quot;</span>).innerHTML = xhttp.responseText;</b></p>
+        
+        
+        <h2>The responseXML Property</h2>
+                
+        <p>The XML HttpRequest object has an in-built XML parser.</p>
+        <p>The <b>responseXML</b> property returns the server response as an XML DOM object.</p>
+        <p>Using this property you can parse the response as an XML DOM object:</p>
+        <p id="demo2"></p>
+        
+        
+        <h2>The getAllResponseHeaders() Method</h2>
+        
+        <p>The <b>getAllResponseHeaders()</b> method returns all header information from the server response.</p>
+        
+        <p>The getAllResponseHeaders() function returns all the header information of a resource, like length, server-type, content-type, last-modified, etc:</p>
+        <p id="demo3"></p>
+        
+        
+        <h2>The getResponseHeader() Method</h2>
+        
+        <p>The getResponseHeader() method returns specific header information from the server response.</p>
+        
+        <p>The getResponseHeader() function is used to return specific header information from a resource, like length, server-type, content-type, last-modified, etc:</p>
+        <p>Last modified: <span id="demo4"></span></p>
+        
+        <script>
+            //The function requests data from a web server and displays it:
+            function loadDoc1(url, cFunction) {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        cFunction(this);
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+            
+            function myFunction(xhttp) {
+                document.getElementById("demo1").innerHTML = xhttp.responseText;
+            }
+            
+            // Este código es de la sección responseXML
+            var xhttp2, xmlDoc2, txt2, x2, i2;
+            xhttp2 = new XMLHttpRequest();
+            
+            xhttp2.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    xmlDoc2 = this.responseXML;
+                    txt2 = "";
+                    x2 = xmlDoc2.getElementsByTagName("ARTIST");
+                    for (i2 = 0; i2 < x2.length; i2++) {
+                        txt2 = txt2 + x2[i2].childNodes[0].nodeValue + "<br>";
+                    }
+                    document.getElementById("demo2").innerHTML = txt2;
+                }
+            };
+            xhttp2.open("GET", "js/ajax_info.txt", true);
+            xhttp2.send();
+            
+            // Este bloque de código es común para las secciones
+            // The getAllResponseHeaders() Method and The getResponseHeader() Method
+            var xhttp3 = new XMLHttpRequest();
+            
+            xhttp3.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status = 200) {
+                    // getAllResponseHeaders()
+                    document.getElementById("demo3").innerHTML = this.getAllResponseHeaders();
+                    // getResponseHeader()
+                    document.getElementById("demo4").innerHTML = this.getResponseHeader("Last-Modified");
+                }
+            };
+            xhttp3.open("GET", "js/ajax_info.txt", true);
+            xhttp3.send();
+        </script> 
+    </body>
+</html> 

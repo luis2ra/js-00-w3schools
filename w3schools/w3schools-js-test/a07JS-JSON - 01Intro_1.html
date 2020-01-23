@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON - Introduction (1 of 3)</h1>
+        
+        <div style="background-color: lightpink"> 
+            <p>JSON: JavaScript Object Notation.</p>
+            <p>JSON is a syntax for storing and exchanging data.</p>
+            <p>JSON is text, written with JavaScript object notation.</p>
+        </div>
+        
+        <h3>Exchanging Data</h3>
+        <p>When exchanging data between a browser and a server, the data can only be text.</p>
+        <p>JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server.</p>
+        <p>We can also convert any JSON received from the server into JavaScript objects.</p>
+        <p>This way we can work with the data as JavaScript objects, with no complicated parsing and translations.</p>
+        
+        
+        <h3>Sending Data</h3>
+        
+        <h4>Convert a JavaScript object into a JSON string, and send it to the server.</h4>
+        <p id="demo1"></p>
+        
+        <h3>Receiving Data</h3>
+        
+        <p>ver el link: <a href="a07JS-JSON%20-%2001Intro_2.html" target="_blank">a07JS-JSON - 01Intro_2.html</a></p>
+        
+        <h3>Storing Data</h3>
+        
+        <p>ver el link: <a href="a07JS-JSON%20-%2001Intro_3.html" target="_blank">a07JS-JSON - 01Intro_3.html</a></p>
+        
+        <h3>What is JSON?</h3>
+        <ul>
+            <li>JSON stands for JavaScript Object Notation.</li>
+            <li>JSON is lightweight data interchange format.</li>
+            <li>JSON is language independent.</li>
+            <li>JSON is "self-describing" and easy to understand.</li>
+        </ul>
+        
+        
+        <h3>Why use JSON?</h3>
+        <p>Since the JSON format is text only, it can easily be sent to and from a server, and used as a data format by any programming language.</p>
+        <p>JavaScript has a built in function to convert a string, written in JSON format, into native JavaScript objects: <b>JSON.parse()</b></p>
+        <p>So, if you receive data from a server, in JSON format, you can use it like any other JavaScript object.</p>
+        
+        <script>
+            var myObj = { "name":"John", "age":31, "city":"New York" };
+            var myJSON = JSON.stringify(myObj);
+            
+            // La siguiente linea envia el archivo a la carpeta de Descarga
+            // window.location = "js/demo_json.php?x=" + myJSON;
+            document.getElementById("demo1").innerHTML = myJSON;
+        </script> 
+    </body>
+</html> 

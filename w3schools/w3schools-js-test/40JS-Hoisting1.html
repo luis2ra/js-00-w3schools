@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Hoisting</h2>
+        <p>Hoisting is JavaScript's default behavior of moving declarations to the top.</p>
+        
+        <h3>JavaScript Declarations are Hoisted</h3>
+        <p>In JavaScript, a variable can be declared after it has been used.</p>
+        <p>In other words; a variable can be used before it has been declared.</p>
+        
+        <p id="demo"></p>
+        
+        <p>To understand this, you have to understand the term "hoisting".</p>
+        <p>Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).</p>
+
+        <h3>Traducción:</h3>
+        <p>Para entender esto, debes entender el término "elevación".</p>
+        <p>El izamiento es el comportamiento predeterminado de JavaScript de mover todas las declaraciones a la parte superior del alcance actual (a la parte superior del guión actual o la función actual).</p>
+        <script>
+            x = 5; // Assign 5 to x
+
+            elem = document.getElementById("demo"); // Find an element 
+            elem.innerHTML = x;                     // Display x in the element
+
+            var x; // Declare x
+        </script>
+    </body>
+</html>

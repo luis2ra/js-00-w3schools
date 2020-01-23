@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function myFunction() {
+                document.getElementById("demo0").innerHTML = "Mi primer JavaScript en la sección de encabezado de una página HTML.";
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align:center;">JavaScript Where To</h1>
+        
+        
+        <h2>The &lt;script&gt; Tag</h2>
+        <p>In HTML, JavaScript code must be inserted between &lt;script&gt; and &lt;/script&gt; tags.</p>
+        
+        <h2>JavaScript Functions and Events</h2>
+        <p>A JavaScript <b>function</b> is a block of JavaScript code, that can be executed when &quot;called&quot; for. For example, a function can be called when an <b>event</b> occurs, like when the user clicks a button.</p>
+        
+        
+        <h2>JavaScript in &lt;head&gt; or &lt;body&gt;</h2>
+        <p>You can place any number of scripts in an HTML document.</p>
+        <p>Scripts can be placed in the &lt;body&gt;, or in the &lt;head&gt; section of an HTML page, or in both.</p>
+        
+        
+        <h2>JavaScript in &lt;head&gt;</h2>
+        <p>In this example, a JavaScript function is placed in the &lt;head&gt; section of an HTML page.</p>
+        
+        <p id="demo0">Al presionar el botón, llama la función myFunction definida en el encabezado de la página HTML.</p>
+        <button type="button" onclick="myFunction()">
+            Presiona Aquí ! ! !
+        </button>
+        
+        
+        <h2>JavaScript in &lt;body&gt;</h2>
+        
+        <p id="demo1"></p>
+        
+        <p id="demo2">Al presionar el botón, llama la función myFunction2 definida en el cuerpo de la página HTML. Tener presente esto: <br/>Placing scripts at the bottom of the 'body' element improves the display speed, because script compilation slows down the display.</p>
+        
+        <button type="button" onclick="myFunction2()">
+            Presiona Aqui También!!!
+        </button>
+        
+        
+        <h2>External JavaScript</h2>
+        <p>External scripts are practical when the same code is used in many different web pages.</p>
+        <p>JavaScript files have the file extension <b>.js</b></p>
+        <p>To use an external script, put the name of the script file in the src (source) attribute of a &lt;script&gt; tag:</p>
+        <p><b>Example:</b>  &lt;script src="myScript.js"&gt;&lt;/script&gt; </p>
+        
+        
+        <h3>External JavaScript Advantages</h3>
+        <p>Placing scripts in external files has some advantages:</p>
+        <ul>
+            <li>It separates HTML and code.</li>
+            <li>It makes HTML and JavaScript easier to read and maintain.</li>
+            <li>Cached JavaScript files can speed up page loads.</li>
+        </ul>
+        <p>To add several script files to one page use several script tags.</p>
+        
+        <script>
+            document.getElementById("demo1").innerHTML = "Mi primer JavaScript básico definido en el cuerpo de una página HTML.";
+
+            function myFunction2() {
+                document.getElementById("demo2").innerHTML = "Botón presionado. Recordar que: <br/>Colocar scripts en la parte inferior del elemento <body> mejora la velocidad de visualización, porque la compilación de scripts ralentiza la visualización.";
+            }
+        </script>
+    </body>
+</html> 

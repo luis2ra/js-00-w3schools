@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Use Strict</h2>
+        <p><b>&quot;use strict&quot;;</b> Defines that JavaScript code should be executed in &quot;strict mode&quot;.</p>
+        
+        <h3>The "use strict" Directive</h3>
+        <p>The "use strict" directive is new in JavaScript 1.8.5 (ECMAScript version 5).</p>
+        <p>It is not a statement, but a literal expression, ignored by earlier versions of JavaScript. </p>
+        <p>The purpose of &quot;use strict&quot; is to indicate that the code should be executed in &quot;strict mode&quot;.</p>
+        <p>With strict mode, you can not, for example, use undeclared variables.</p>
+        
+        <p>Activate debugging in your browser (F12) to see the error report.</p>
+        
+        <h3>Not Allowed in Strict Mode</h3>
+        <ul>
+            <li>Using a variable without declaring it, is not allowed.</li>
+            <li>Using an object, without declaring it, is not allowed.</li>
+            <li>Deleting a variable (or object) is not allowed.</li>
+            <li>Deleting a function is not allowed.</li>
+            <li>Duplicating a parameter name is not allowed.</li>
+            <li>Octal numeric literals are not allowed.</li>
+            <li>Octal escape characters are not allowed.</li>
+            <li>Writing to a read-only property is not allowed.</li>
+            <li>Writing to a get-only property is not allowed.</li>
+            <li>Deleting an undeletable property is not allowed.</li>
+            <li>The string &quot;eval&quot; cannot be used as a variable.</li>
+            <li>The string &quot;arguments&quot; cannot be used as a variable:</li>
+            <li>The with statement is not allowed.</li>
+            <li>For security reasons, eval() is not allowed to create variables in the scope from which it was called.</li>
+            
+        </ul>
+        
+        <script>
+            "use strict";
+            var x;
+            
+            x = 3.14;       
+            y = 100;    // This will cause an error (y is not defined).
+        </script>
+    </body>
+</html>        

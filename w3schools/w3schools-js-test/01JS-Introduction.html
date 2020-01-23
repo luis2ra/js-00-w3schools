@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JavaScript Introduction</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align: center;">JavaScript Introduction</h1>
+
+        
+        <h2>JavaScript can change HTML content.</h2>
+        <p>One of many JavaScript HTML methods is <b>getElementById()</b>.</p>
+        <p>This example uses the method to "find" an HTML element (with id="demo1") and changes the element content (innerHTML) to "Hello JavaScript!":</p>
+
+        <h3 id="demo1">JavaScript can change HTML content.</h3>
+        <button type="button" onclick='document.getElementById("demo1").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+        <hr>
+            
+        <h2>JavaScript can change HTML attributes.</h2>
+
+        <p>In this case JavaScript changes the src (source) attribute of an image.</p>
+        
+        <button type="button" onclick="document.getElementById('myImage').src='img/pic_bulbon.gif'">
+            Turn on the light.
+        </button>
+
+        <img id='myImage' src="img/pic_bulboff.gif" style="width: 100px">
+        
+        <button type="button" onclick="document.getElementById('myImage').src='img/pic_bulboff.gif'">
+            Turn off the light.
+        </button>
+        <hr>
+        
+        <h2 id="demo2">JavaScript can change HTML Styles (CSS)</h2>
+        <p>Changing the style of an HTML element, is a variant of changing an HTML attribute:</p>
+        
+        <button type="button" onclick="document.getElementById('demo2').style.fontSize='30px'">Click Me!</button>
+        <hr>
+        
+        <h2 id="demo3">JavaScript can hide HTML elements.</h2>
+
+        <button type="button" onclick="document.getElementById('demo3').style.display='none'">Click Me!</button>
+        <hr>
+        
+        <h2>JavaScript can show hidden HTML elements.</h2>
+
+        <p id="demo4" style="display:none">Hello JavaScript!</p>
+
+        <button type="button" onclick="document.getElementById('demo4').style.display='block'">Click Me!</button>
+        <hr>
+    </body>
+</html> 

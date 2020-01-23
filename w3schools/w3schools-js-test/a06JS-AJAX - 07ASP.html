@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX ASP Example</h1>
+        
+        <div style="background-color: lightpink;"> 
+            <p style="padding: 10px;">AJAX is used to create more interactive applications.</p>
+        </div>
+        
+        <h2>AJAX ASP Example</h2>
+        
+        <p>The following example demonstrates how a web page can communicate with a web server while a user types characters in an input field:</p>
+        <p>In the example above, when a user types a character in the input field, a function called &quot;showHint()&quot; is executed.</p>
+        <p>The function is triggered by the onkeyup event.</p>
+            
+        <p><b>Start typing a name in the input field below:</b></p>
+        <form action="">
+            First name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+        
+        <p><b><i>Code explanation:</i></b></p>
+        <p>First, check if the input field is empty (str.length == 0). If it is, clear the content of the txtHint placeholder and exit the function.</p>
+        <p>However, if the input field is not empty, do the following:</p>
+        <ul>
+            <li>Create an XMLHttpRequest object</li>
+            <li>Create the function to be executed when the server response is ready</li>
+            <li>Send the request off to a ASP file (gethint.asp) on the server</li>
+            <li>Notice that q parameter is added &quot;gethint.asp?q=&quot;+str</li>
+            <li>The str variable holds the content of the input field</li>
+        </ul>
+        
+        <h2>The ASP File - &quot;gethint.asp&quot;</h2>
+        
+        <p>The ASP file checks an array of names, and returns the corresponding name(s) to the browser.</p>
+        
+        <script>
+            function showHint(str) {
+                var xhttp;
+                
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    //console.log("entro en vacío");
+                    return;
+                }
+                xhttp = new XMLHttpRequest();
+                //console.log("inicializa el objeto...");
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/gethint.asp?q="+str, true);
+                xhttp.send();
+            }
+        </script> 
+    </body>
+</html> 

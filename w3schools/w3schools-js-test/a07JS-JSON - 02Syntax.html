@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON-Syntax</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON Syntax</h1>
+        
+        <p>The JSON syntax is a subset of the JavaScript syntax.</p>
+        
+        
+        <h2>JSON Syntax Rules</h2>
+        
+        <p>JSON syntax is derived from JavaScript object notation syntax:</p>
+        <ul>
+            <li>Data is in name/value pairs.</li>
+            <li>Data is separated by commas.</li>
+            <li>Curly braces hold objects.</li>
+            <li>Square brackets hold arrays.</li>
+        </ul>
+        
+        
+        <h2>JSON Data - A Name and a Value</h2>
+        
+        <p>JSON data is written as name/value pairs.</p>
+        <p>A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value: <b>&quot;name&quot;:&quot;John&quot;</b></p>
+        
+        <p><b>JSON names require double quotes. JavaScript names don't.</b></p>
+        
+        
+        <h2>JSON - Evaluates to JavaScript Objects</h2>
+        
+        <p>The JSON format is almost identical to JavaScript objects.</p>
+        <p>In JSON, keys must be strings, written with double quotes: { &quot;name&quot;:&quot;John&quot; }</p>
+        <p>In JavaScript, keys can be strings, numbers, or identifier names: { name:&quot;John&quot; } </p>
+        
+        
+        <h2>JSON Values</h2>
+        
+        <p>In JSON, <i>values</i> must be one of the following data types:</p>
+        <ul>
+            <li>a string</li>
+            <li>a number</li>
+            <li>an object (JSON object)</li>
+            <li>an array</li>
+            <li>a boolean</li>
+            <li>null</li>
+        </ul>
+        <p>In JavaScript values can be all of the above, plus any other valid JavaScript expression, including:</p>
+        <ul>
+            <li>a function</li>
+            <li>a date</li>
+            <li>undefined</li>
+        </ul>
+        
+        <p>In JSON, <i>string values</i> must be written with double quotes: { &quot;name&quot;:&quot;John&quot; }</p>
+        <p>In JavaScript, you can write <i>string values</i> with double or single quotes:  { name:&#39;John&#39; }</p>
+        
+        
+        <h2>JSON Uses JavaScript Syntax</h2>
+
+        <p>Because JSON syntax is derived from JavaScript object notation, very little extra software is needed to work with JSON within JavaScript.</p>
+        <p>With JavaScript you can create an object and assign data to it, like this:</p>
+        
+        <h4>Access a JavaScript object:</h4>
+        <p id="demo1a"></p>
+        
+        <h4>Access a JavaScript object using the bracket notation:</h4>
+        <p id="demo1b"></p>
+        
+        <h4>Modify a JavaScript object:</h4>
+        <p id="demo2a"></p>
+        
+        <h4>Modify a JavaScript object using the bracket notation:</h4>
+        <p id="demo2b"></p>
+        
+        
+        <h2>JavaScript Arrays as JSON</h2>
+        
+        <p>The same way JavaScript objects can be used as JSON, JavaScript arrays can also be used as JSON.</p>
+        <p>You will learn more about arrays as JSON later in this tutorial.</p>
+        
+        
+        <h2>JSON Files</h2>
+        
+        <ul>
+            <li>The file type for JSON files is &quot;.json&quot;</li>
+            <li>The MIME type for JSON text is &quot;application/json&quot;</li>
+        </ul>
+        
+        <script>
+            var myObj, myObjModif, x1a, x1b, x2a, x2b;
+            
+            myObj = { "name":"John", "age":30, "city":"New York" };
+            
+            x1a = myObj.name;
+            x1b = myObj["name"];
+            
+            myObjModif = { "name":"Edward", "age":30, "city":"El Vigía" };
+            
+            x2a = myObjModif.name = "Luis";
+            x2b = myObjModif["city"] = "Mérida";
+            
+            document.getElementById("demo1a").innerHTML = x1a;
+            document.getElementById("demo1b").innerHTML = x1b;
+            
+            document.getElementById("demo2a").innerHTML = x2a;
+            document.getElementById("demo2b").innerHTML = x2b;
+            
+        </script> 
+    </body>
+</html> 

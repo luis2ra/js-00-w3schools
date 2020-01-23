@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Break and Continue</h2>
+
+        <p>The <b>break</b> statement "jumps out" of a loop.</p>
+        <p>The <b>continue</b> statement "jumps over" one iteration in the loop.</p>
+        
+        <h3>The Break Statement</h3>
+        <p>The <b>break statement</b> breaks the loop and continues executing the code after the loop (if any):</p>
+        <p id="demo"></p>
+        
+        <h3>The Continue Statement</h3>
+        <p>The <b>continue statement</b> breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop. This example skips the value of 3:</p>
+        <p id="demo2"></p>
+        
+        <h3>JavaScript Labels</h3>
+        <p>The continue statement (with or without a label reference) can only be used to <b>skip one loop iteration.</b></p>
+        <p>The break statement, without a label reference, can only be used to <b>jump out of a loop or a switch.</b></p>
+        <p>With a label reference, the break statement can be used to <b>jump out of any code block:</b></p>
+        <p id="demo3"></p>
+        
+        <script>
+            var text = "";
+            var i;
+            
+            var text2 = "";
+            var j;
+            
+            var cars = ["BMW", "Volvo", "Saab", "Ford"];
+            var text3 = "";
+            
+            for (i = 0; i < 10; i++) {
+                if (i === 3) { break; }
+                text += "The number is " + i + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+            
+            for (j = 0; j < 10; j++) {
+                if (j === 3) { continue; }
+                text2 += "The number is " + j + "<br>";
+            }
+            document.getElementById("demo2").innerHTML = text2;
+            
+            // uso de etiqueta con la sentencia break
+            list: {
+                text3 += cars[0] + "<br>";
+                text3 += cars[1] + "<br>";
+                text3 += cars[2] + "<br>";
+                break list;
+                text3 += cars[3] + "<br>";
+                text3 += cars[4] + "<br>";
+                text3 += cars[5] + "<br>";
+            }
+            document.getElementById("demo3").innerHTML = text3;
+            
+        </script>
+
+    </body>
+</html>

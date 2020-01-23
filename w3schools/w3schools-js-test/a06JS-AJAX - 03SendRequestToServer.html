@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX - Send a Request To a Server</h1>
+        
+        <div style="background-color: lightpink;"> 
+            <p style="padding: 10px;">The XMLHttpRequest object is used to exchange data with a server.</p>
+        </div>
+        
+        <h2>Send a Request To a Server</h2>
+        
+        <p>To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:</p>
+    
+        <p><b>xhttp.open(<span style="color: red;">&quot;GET&quot;</span>, <span style="color: red;">&quot;ajax_info.txt&quot;</span>, <span style="color: blue;">true</span>);</b></p>
+        <p><b>xhttp.send();</b></p>
+        
+        <img id='myImage1' src="img/xhttpOpenSend.png">
+        
+        
+        <h2>GET or POST?</h2>
+        
+        <p>GET is simpler and faster than POST, and can be used in most cases. However, always use POST requests when:</p>
+        <ul>
+            <li>A cached file is not an option (update a file or database on the server).</li>
+            <li>Sending a large amount of data to the server (POST has no size limitations).</li>
+            <li>Sending user input (which can contain unknown characters), POST is more robust and secure than GET.</li>
+        </ul>
+        
+        
+        <h2>GET Requests</h2>
+        
+        <p>A simple GET request:</p>
+        <button type="button" onclick="loadDoc()">Request data</button>
+        <p id="demo"></p>
+        
+        <p>Click the button several times to see if the time changes, or if the file is cached.</p>
+        <button type="button" onclick="loadDoc2()">Request data</button>
+        <p id="demo2"></p>
+        
+        <p>If you want to send information with the GET method, add the information to the URL:</p>
+        <button type="button" onclick="loadDoc3()">Request data</button>
+        <p id="demo3"></p>
+        
+        
+        <h2>POST Requests</h2>
+        
+        <p>A simple POST request:</p>
+        <button type="button" onclick="loadDoc4()">Request data</button>
+        <p id="demo4"></p>
+        
+        <p>To POST data like an HTML form, add an HTTP header with <b>setRequestHeader().</b> Specify the data you want to send in the send() method:</p>
+        <button type="button" onclick="loadDoc5()">Request data</button>
+        <p id="demo5"></p>
+        
+        
+        <h2>The url - A File On a Server</h2>
+        
+        <p>The url parameter of the open() method, is an address to a file on a server:</p>
+        <p><b>xhttp.open(<span style="color: red;">&quot;GET&quot;</span>, <span style="color: red;">&quot;ajax_test.asp&quot;</span>, <span style="color: blue;">true</span>);</b></p>
+        <p>The file can be any kind of file, like .txt and .xml, or server scripting files like .asp and .php (which can perform actions on the server before sending the response back).</p>
+        
+        
+        <h2>Asynchronous - True or False?</h2>
+
+        <p>Server requests should be sent asynchronously.</p>
+        <p>The async parameter of the open() method should be set to true:</p>
+        <p><b>xhttp.open(<span style="color: red;">&quot;GET&quot;</span>, <span style="color: red;">&quot;ajax_test.asp&quot;</span>, <span style="color: blue;">true</span>);</b></p>
+        <p>By sending asynchronously, the JavaScript does not have to wait for the server response, but can instead:</p>
+        <ul>
+            <li>execute other scripts while waiting for server response.</li>
+            <li>deal with the response after the response is ready.</li>
+        </ul>
+        
+        
+        <h2>The onreadystatechange Property</h2>
+        
+        <p>With the XMLHttpRequest object you can define a function to be executed when the request receives an answer.</p>
+        <p>The function is defined in the <b>onreadystatechange</b> property of the XMLHttpResponse object:</p>
+        <div id="demo6">
+            <button type="button" onclick="loadDoc6()">Change Content</button>
+            <p>Demostración del uso de la propiedad onreadystatechange del objeto XMLHttpRequest().</p>
+        </div>
+        
+        
+        <h2>Synchronous Request</h2>
+        
+        <p>To execute a synchronous request, change the third parameter in the open() method to false:</p>
+        <p><b>xhttp.open(<span style="color: red;">&quot;GET&quot;</span>, <span style="color: red;">&quot;ajax_info.txt&quot;</span>, <span style="color: blue;">false</span>);</b></p>
+        <p>Sometimes async = false are used for quick testing. You will also find synchronous requests in older JavaScript code.</p>
+        <p>Since the code will wait for server completion, there is no need for an onreadystatechange function:</p>
+        
+        <p id="demo7">Let AJAX change this text.</p>
+        <button type="button" onclick="loadDoc7()">Change Content</button>
+        
+        <script>
+            //The function requests data from a web server and displays it:
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/ajax_info.txt", true);
+                //xhttp.open("GET", "js/demo_get.asp", true);
+                xhttp.send();
+            }
+            
+            function loadDoc2() {
+                var xhttp = new XMLHttpRequest();
+                                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo2").innerHTML = this.responseText;
+                    }
+                };
+                //xhttp.open("GET", "js/demo_get.asp?t=" + Math.random(), true);
+                xhttp.open("GET", "js/ajax_info.txt?t=" + Math.random(), true);
+                xhttp.send();
+            }
+            
+            function loadDoc3() {
+                var xhttp = new XMLHttpRequest();
+                                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo3").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/ajax_info.txt?t=", true);
+                //xhttp.open("GET", "js/demo_get2.asp?fname=Luis&lname=Altuve", true);
+                xhttp.send();
+            }
+            
+            function loadDoc4() {
+                var xhttp = new XMLHttpRequest();
+                                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo4").innerHTML = this.responseText;
+                    }
+                };
+                // validar la diferencia entre usar GET y POST
+                xhttp.open("POST", "js/demo_post.asp", true);
+                xhttp.send();
+            }
+            
+            function loadDoc5() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo5").innerHTML == this.responseText;
+                    }
+                };
+                xhttp.open("POST", "demo_post2.asp", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("fname=Luis&lname=Altuve");
+            }
+            
+            function loadDoc6() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo6").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/ajax_info.txt", true);
+                xhttp.send();
+            }
+            
+            function loadDoc7() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.open("GET", "js/ajax_info.txt", false);
+                xhttp.send();
+                document.getElementById("demo7").innerHTML = xhttp.responseText;
+            }
+        </script> 
+    </body>
+</html> 

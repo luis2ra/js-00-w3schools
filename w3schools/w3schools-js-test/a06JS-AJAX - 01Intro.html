@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX - Introduction</h1>
+        
+        <div style="background-color: lightpink;">
+            <p>AJAX is a developer's dream, because you can:</p>
+            <ul>
+                <li>Read data from a web server - after the page has loaded</li>
+                <li>Update a web page without reloading the page</li>
+                <li>Send data to a web server - in the background</li>
+            </ul>
+        </div>
+        
+        <h2>AJAX Example Explained</h2>
+    
+        <p>The HTML page contains a &lt;div&gt; section and a &lt;button&gt;.</p>
+        <p>The &lt;div&gt; section is used to display information from a server.</p>
+        <p>The &lt;button&gt; calls a function (if it is clicked).</p>
+        
+        <div id="demo">
+            <h4>The XMLHttpRequest Object</h4>
+            <button type="button" onclick="loadDoc()">Change Content</button>
+        </div>
+    
+        
+        <h2>What is AJAX?</h2>
+        
+        <p>AJAX = <b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML.</p>
+        <p>AJAX is not a programming language.</p>
+        <p>AJAX just uses a combination of:</p>
+        <ul>
+            <li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+            <li>JavaScript and HTML DOM (to display or use the data)</li>
+        </ul>
+        <div style="background-color: lightgreen;">
+            <p>AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.</p>
+            <p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+        </div>
+        
+        
+        <h2>How AJAX Works</h2>
+        
+        <img id='myImage' src="img/pic_ajax.gif">
+        <ol>
+            <li>An event occurs in a web page (the page is loaded, a button is clicked)</li>
+            <li>An XMLHttpRequest object is created by JavaScript</li>
+            <li>The XMLHttpRequest object sends a request to a web server</li>
+            <li>The server processes the request</li>
+            <li>The server sends a response back to the web page</li>
+            <li>The response is read by JavaScript</li>
+            <li>Proper action (like page update) is performed by JavaScript </li>
+        </ol>
+        
+        <script>
+            //The function requests data from a web server and displays it:
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "js/ajax_info.txt", true);
+                xhttp.send();
+            }
+        </script> 
+    </body>
+</html> 

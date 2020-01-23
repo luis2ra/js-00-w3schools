@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Dates</h2>
+
+        <p>The Date object lets you work with dates (years, months, days, hours, minutes, seconds, and milliseconds)</p>
+        
+        <h3>JavaScript Date Formats</h3>
+        <p>A JavaScript date can be written as a string or as a number. Dates written as numbers, specifiy the number of milliseconds since January 1, 1970, 00:00:00.</p>
+        
+        <h3>Displaying Dates</h3>
+        <p>In this tutorial we use a script to display dates inside a element paragraph with id="demo":</p>
+        
+        <p id="demo"></p>
+        
+        <h3>Creating Date Objects</h3>
+        <p>The Date object lets us work with dates. A date consists of a year, a month, a day, an hour, a minute, a second, and milliseconds. Date objects are created with the new Date() constructor.</p>
+        <p>Using new Date(), creates a new date object with the current date and time:</p>
+        <p id="demo2"></p>
+        
+        <p>Using new Date(date string), creates a new date object from the specified date and time:</p>
+        <p id="demo3"></p>
+        
+        <p>100000000000 milliseconds from Jan 1, 1970, is approximately Mar 3, 1973:</p>
+        <p id="demo4"></p>
+        
+        <p>Using new Date(7 numbers), creates a new date object with the specified date and time. The 7 numbers specify the year, month, day, hour, minute, second, and millisecond, in that order:</p>
+        <p id="demo5"></p>
+        
+        <p>JavaScript counts months from 0 to 11. January is 0. December is 11. Variants of the example above let us omit any of the last 4 parameters:</p>
+        <p id="demo6"></p>
+        
+        <script>
+            var d2 = new Date();
+            var d3 = new Date("October 13, 2014 11:13:00");
+            var d4 = new Date(100000000000);
+            var d5 = new Date(1,1,1,11,33,30,0);
+            var d6 = new Date(99,5,24);
+            
+            document.getElementById("demo").innerHTML = Date();
+            document.getElementById("demo2").innerHTML = d2;
+            document.getElementById("demo3").innerHTML = d3;
+            document.getElementById("demo4").innerHTML = d4;
+            document.getElementById("demo5").innerHTML = d5;
+            document.getElementById("demo6").innerHTML = d6;
+        </script>
+
+    </body>
+</html>

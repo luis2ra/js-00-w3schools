@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS JSON</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style=text-align:center>JSON.parse()</h1>
+        
+        <div style="background-color: lightpink"> 
+            <p>A common use of JSON is to exchange data to/from a web server.</p>
+            <p>When receiving data from a web server, the data is always a string.</p>
+            <p>Parse the data with JSON.parse(), and the data becomes a JavaScript object.</p>
+        </div>
+        
+        
+        <h2>Example - Parsing JSON</h2>
+        
+        <p>Create Object from JSON String: </p>      
+        <p id="demo1"></p>
+        
+        <p><b>Note: </b>Make sure the text is written in JSON format, or else you will get a syntax error.</p>
+        
+        <h2>JSON From the Server</h2>
+        
+        <p>You can request JSON from the server by using an AJAX request</p>
+        <p>As long as the response from the server is written in JSON format, you can parse the string into a JavaScript object.</p>
+        <h4>Use the XMLHttpRequest to get the content of a file.</h4>
+        <p id="demo2"></p>
+        
+        <p>Take a look at <a href="js/json_demo.txt" target="_blank">json_demo.txt</a></p>
+        
+        
+        <h2>Array as JSON</h2>
+        
+        <p>When using the JSON.parse() on a JSON derived from an array, the method will return a JavaScript array, instead of a JavaScript object.</p>
+        <p>Content written as an JSON array will be converted into a JavaScript array:</p>
+        <p id="demo3"></p>
+        
+        <p>Take a look at <a href="js/json_demo_array.txt" target="_blank">json_demo_array.txt</a></p>
+
+        <h2>Exceptions: Parsing Dates</h2>
+        
+        <p>Date objects are not allowed in JSON.</p>
+        <p>If you need to include a date, write it as a string.</p>
+        <h4>Convert a string into a date object:</h4>
+        <p id="demo4"></p>
+        
+        <p>Or, you can use the second parameter, of the JSON.parse() function, called <i>reviver</i>. The <b>reviver parameter</b> is a function that checks each property, before returning the value.</p>
+        
+        <h4>Convert a string into a date object (other form):</h4>
+        <p id="demo5"></p>
+        
+        <h2>Exceptions: Parsing Functions</h2>
+        
+        <p>Functions are not allowed in JSON.</p>
+        <p>If you need to include a function, write it as a string.</p>
+        <h4>Convert a string into a function:</h4>
+        <p id="demo6"></p>
+        
+        <div style="background-color: lightgreen">
+            <p>You should avoid using functions in JSON, the functions will lose their scope, and you would have to use eval() to convert them back into functions.</p>
+        </div>
+
+        <h3>Browser Support</h3>
+        <p>The JSON.parse() function is included in all major browsers and in the latest ECMAScript (JavaScript) standard:</p>
+        <ul>
+            <li>Firefox 3.5</li>
+            <li>Internet Explorer 8</li>
+            <li>Chrome</li>
+            <li>Opera 10</li>
+            <li>Safari 4</li>
+        </ul>
+        <p>For older browsers, a JavaScript library is available at https://github.com/douglascrockford/JSON-js.</p>
+        
+        <script>
+            var obj1 = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+            
+            var xmlhttp2 = new XMLHttpRequest();
+            
+            var xmlhttp3 = new XMLHttpRequest();
+            
+            var text4 = '{ "name":"John", "birth":"1986-12-14", "city":"New York"}';
+            var obj4 = JSON.parse(text4);
+            obj4.birth = new Date(obj4.birth);
+            
+            var text5 = '{ "name":"John", "birth":"1986-12-14", "city":"New York"}';
+            var obj5 = JSON.parse(text5, function (key, value) {
+                if (key == "birth") {
+                    return new Date(value);
+                } else {
+                    return value;
+                }});
+            
+            var text = '{ "name":"John", "age":"function() {return 30;}", "city":"New York"}';
+            var obj6 = JSON.parse(text);
+            obj6.age = eval("(" + obj6.age + ")");
+            
+            document.getElementById("demo1").innerHTML = obj1.name + ", " + obj1.age;
+            
+            /* Para el ejemplo 2
+            */
+            xmlhttp2.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myObj = JSON.parse(this.responseText);
+                    document.getElementById("demo2").innerHTML = myObj.name;
+                }
+            };
+            xmlhttp2.open("GET", "js/json_demo.txt", true);
+            xmlhttp2.send();
+
+            /* Para el ejemplo 3 
+            */
+            xmlhttp3.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    document.getElementById("demo3").innerHTML = myArr[0];
+                }
+            };
+            xmlhttp3.open("GET", "js/json_demo_array.txt", true);
+            xmlhttp3.send();
+            
+            document.getElementById("demo4").innerHTML = obj4.name + ", " + obj4.birth;
+            
+            document.getElementById("demo5").innerHTML = obj5.name + ", " + obj5.birth;
+            
+            document.getElementById("demo6").innerHTML = obj6.name + ", " + obj6.age();
+        </script> 
+    </body>
+</html> 

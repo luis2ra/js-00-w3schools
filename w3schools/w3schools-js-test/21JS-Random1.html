@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Random</h2>
+        
+        <p><b>Math.random()</b> returns a random number between 0 (included) and 1 (excluded):</p>
+        
+        <p id="demo"></p>
+        
+        <h3>JavaScript Random Integers</h3>
+
+        <p>Math.random() used with Math.floor() can be used to return random integers.</p>
+        
+        <p>Math.floor(Math.random() * 10) returns a random integer between 0 and 9 (both included):</p>
+        <p id="demo2"></p>
+        
+        <p>Math.floor(Math.random() * 11) returns a random integer between 0 and 10 (both included).</p>
+        <p id="demo3"></p>
+        
+        <p>Math.floor(Math.random() * 100)) returns a random integer between 0 and 99 (both included).</p>
+        <p id="demo4"></p>
+        
+        <p>Math.floor() used with Math.random() * 101 returns a random integer between 0 and 100.</p>
+        <p id="demo5"></p>
+
+        <p>Math.floor(Math.random() * 10) + 1) returns a random integer between 1 and 10 (both included).</p>
+        <p id="demo6"></p>
+        
+        <p>Math.floor(Math.random() * 100) + 1) returns a random integer between 1 and 100 (both included).</p>
+        <p id="demo7"></p>
+        
+        <script>
+            document.getElementById("demo").innerHTML = 
+                Math.random();
+            document.getElementById("demo2").innerHTML = 
+                Math.floor(Math.random() * 10);
+            document.getElementById("demo3").innerHTML = 
+                Math.floor(Math.random() * 11);
+            document.getElementById("demo4").innerHTML = 
+                Math.floor(Math.random() * 100);
+            document.getElementById("demo5").innerHTML = 
+                Math.floor(Math.random() * 101);
+            document.getElementById("demo6").innerHTML = 
+                Math.floor(Math.random() * 10) + 1;
+            document.getElementById("demo7").innerHTML = 
+                Math.floor(Math.random() * 100) + 1;
+        </script>
+
+    </body>
+</html>

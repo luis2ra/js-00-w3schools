@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Date Methods</h2>
+
+        <p>Date methods let you get and set date values (years, months, days, hours, minutes, seconds, milliseconds)</p>
+        
+        <h3>Date Get Methods</h3>
+        <p>Get methods are used for getting a part of a date. Here are the most common (alphabetically): getDate(), getDay(), getFullYear(), getHours(), getMilliseconds(), getMinutes(), getMonth(), getSeconds() and getTime().</p>
+        
+        <h3>The getTime() Method</h3>
+        <p>The internal clock in JavaScript starts at midnight January 1, 1970.</p>
+        <p>The getTime() function returns the number of milliseconds since then:</p>
+        <p id="demo"></p>
+        
+        <h3>The getFullYear() Method</h3>
+        <p>The getFullYear() method returns the full year of a date:</p>
+        <p id="demo2"></p>
+        
+        <h3>The getDay() Method</h3>
+        <p>The getDay() method returns the weekday as a number:</p>
+        <p id="demo3"></p>
+        
+        <p>In JavaScript, the first day of the week (0) means "Sunday", even if some countries in the world consider the first day of the week to be "Monday".</p>
+        <p>You can use an array to display the name of the weekday:</p>
+        <p id="demo4"></p>
+        
+        <script>
+            var d = new Date();
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            document.getElementById("demo").innerHTML = d.getTime();
+            document.getElementById("demo2").innerHTML = d.getFullYear();
+            document.getElementById("demo3").innerHTML = d.getDay();
+            document.getElementById("demo4").innerHTML = days[d.getDay()];
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es-VE">
+        <title>JS AJAX</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="text-align:center;">AJAX - Server Response</h1>
+        
+        <h2>The getAllResponseHeaders() Method</h2>
+        
+        <p>The <b>getAllResponseHeaders()</b> method returns all header information from the server response.</p>
+        
+        <p>The getAllResponseHeaders() function returns all the header information of a resource, like length, server-type, content-type, last-modified, etc:</p>
+        <p id="demo3"></p>
+        
+        
+        <h2>The getResponseHeader() Method</h2>
+        
+        <p>The <b>getResponseHeader()</b> method returns specific header information from the server response.</p>
+        
+        <p>The getResponseHeader() function is used to return specific header information from a resource, like length, server-type, content-type, last-modified, etc:</p>
+        <p>Last modified: <span id="demo4"></span></p>
+        
+        <script>
+            // Este bloque de código es común para las secciones
+            // The getAllResponseHeaders() Method and The getResponseHeader() Method
+            var xhttp3 = new XMLHttpRequest();
+            
+            xhttp3.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status = 200) {
+                    // getAllResponseHeaders()
+                    // document.getElementById("demo3").innerHTML = this.getAllResponseHeaders();
+                    document.getElementById("demo3").innerHTML = "hola 1";
+                    // getResponseHeader()
+                    //document.getElementById("demo4").innerHTML = this.getResponseHeader("Last-Modified");
+                    document.getElementById("demo4").innerHTML = "hola 2";
+                }
+            };
+            xhttp3.open("GET", "js/ajax_info.txt", true);
+            xhttp3.send();
+        </script> 
+    </body>
+</html> 

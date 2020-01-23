@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Booleans</h2>
+
+        <p>A JavaScript Boolean represents one of two values: true or false.</p>
+        
+        <h3>The Boolean() Function</h3>
+        <p>Display the value of Boolean(10 > 9):</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        
+        <p>Display the value of 10 > 9:</p>
+        <button onclick="myFunction2()">Try it</button>
+        <p id="demo2"></p>
+        
+        <h3>Everything With a "Value" is True</h3>
+        <p id="demo3"></p>
+        
+        <h3>Everything With a "Value" is False</h3>
+        <p>Display the Boolean value of 0:</p>
+        <button onclick="myFunction4a()">Try it</button>
+        <p id="demo4a"></p>
+        
+        <p>Display the Boolean value of -0:</p>
+        <button onclick="myFunction4b()">Try it</button>
+        <p id="demo4b"></p>
+        
+        <p>Display the Boolean value of "":</p>
+        <button onclick="myFunction4c()">Try it</button>
+        <p id="demo4c"></p>
+        
+        <p>Display the Boolean value of <b>undefined</b>:</p>
+        <button onclick="myFunction4d()">Try it</button>
+        <p id="demo4d"></p>
+        
+        <p>Display the Boolean value of <b>null</b>:</p>
+        <button onclick="myFunction4e()">Try it</button>
+        <p id="demo4e"></p>
+        
+        <p>Display the Boolean value of <b>false</b>:</p>
+        <button onclick="myFunction4f()">Try it</button>
+        <p id="demo4f"></p>
+        
+        <p>Display the Boolean value of <b>NaN</b>:</p>
+        <button onclick="myFunction4g()">Try it</button>
+        <p id="demo4g"></p>
+        
+        <h3>Booleans Can be Objects</h3>
+        <p>Never create booleans as objects.</p>
+        <p>Booleans and objects cannot be safely compared:</p>
+        <p id="demo5a"></p>
+        
+        <p>When using the == operator, equal booleans are equal:</p>
+        <p id="demo5b"></p>
+        
+        <p>When using the === operator, equal booleans are not equal, because the === operator expects equality in both type and value:</p>
+        <p id="demo5c"></p>
+        
+        <p>Or even worse. Objects cannot be compared:</p>
+        <p id="demo5d"></p>
+        
+        <script>
+            var b1 = Boolean(100);
+            var b2 = Boolean(3.14);
+            var b3 = Boolean(-15);
+            var b4 = Boolean("Hello");
+            var b5 = Boolean('false');
+            var b6 = Boolean(1 + 7 + 3.14);
+            
+            var y = false;                      // x is a boolean
+            var obj = new Boolean(false);       // obj is an object
+            var obj2 = new Boolean(false);      // obj2 is an object
+            
+            document.getElementById("demo3").innerHTML =
+                "100 is " + b1 + "; " +
+                "3.14 is " + b2 + "; " +
+                "-15 is " + b3 + "; " +
+                "Any (not empty) string is " + b4 + ";<br>" +
+                "Even the string 'false' is " + b5 + "; " +
+                "Any expression (except zero) is " + b6;
+            
+            document.getElementById("demo5a").innerHTML = 
+                typeof y + "<br>" + typeof obj;
+            document.getElementById("demo5b").innerHTML = (y==obj);
+            document.getElementById("demo5c").innerHTML = (y===obj);
+            document.getElementById("demo5d").innerHTML = (obj==obj2);
+            
+            function myFunction() {
+                document.getElementById("demo").innerHTML = Boolean(10 > 9);
+            }
+            function myFunction2() {
+                document.getElementById("demo2").innerHTML = 10 > 9;
+            }
+            function myFunction4a() {
+                var x = 0;
+                document.getElementById("demo4a").innerHTML = Boolean(x);
+            }
+            function myFunction4b() {
+                var x = -0;
+                document.getElementById("demo4b").innerHTML = Boolean(x);
+            }
+            function myFunction4c() {
+                var x = "";
+                document.getElementById("demo4c").innerHTML = Boolean(x);
+            }
+            function myFunction4d() {
+                var x;
+                document.getElementById("demo4d").innerHTML = Boolean(x);
+            }
+            function myFunction4e() {
+                var x = null;
+                document.getElementById("demo4e").innerHTML = Boolean(x);
+            }
+            function myFunction4f() {
+                var x = false;
+                document.getElementById("demo4f").innerHTML = Boolean(x);
+            }
+            function myFunction4g() {
+                var x = 10 / "H";
+                document.getElementById("demo4g").innerHTML = Boolean(x);
+            }
+        </script>
+
+    </body>
+</html>        

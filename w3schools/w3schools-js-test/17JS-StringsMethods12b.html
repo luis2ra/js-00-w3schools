@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript String Methods</h2>
+        
+        <p>If the separator is "", the returned array will be an array of single characters:</p>
+        
+        <p id="demo"></p>
+
+        <script>
+            var str = "Hello";
+            var arr = str.split("");
+            var text = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                text += arr[i] + "<br>"
+            }
+            document.getElementById("demo").innerHTML = text;
+        </script>
+
+    </body>
+</html>
