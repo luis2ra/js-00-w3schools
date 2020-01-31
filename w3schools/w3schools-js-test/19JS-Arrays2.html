@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
+    <body>
+
+        <h2>JavaScript Arrays - Part 2</h2>
+
+        <h3>Array Elements Can Be Objects</h3>
+        <p>JavaScript variables can be objects. Arrays are special kinds of objects.</p>
+        <p>Because of this, you can have variables of different types in the same Array.</p>
+        <p>You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array:</p>
+        <div class="w3-code w3-border">
+            <div>
+                myArray[0] = Date.now;<br>
+                myArray[1] = myFunction;<br>
+                myArray[2] = myCars;<br>
+            </div>
+        </div>
+        
+        
+        <h3>Array Properties and Methods</h3>
+        <p>The real strength of JavaScript arrays are the built-in array properties and methods:</p>
+        <div class="w3-example">
+            <h4>Examples</h4>
+            <div class="w3-code">
+                var x = cars.length;&nbsp;&nbsp;&nbsp; // The length property returns the number of elements<br>
+                var y = cars.sort();&nbsp;&nbsp;&nbsp; // The sort() method sorts arrays
+            </div>
+        </div>
+        <p>Array methods are covered in the next chapters.</p>
+        
+        
+        <h3>The length Property</h3>
+        <p>The <b>length</b> property of an array returns the length of an array (the number of array elements):</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        <div style="background-color: lightgoldenrodyellow;">
+            <p>The <b>length</b> property is always one more than the highest array index.</p>
+        </div>
+        
+        
+        <h3>Accessing the First Array Element</h3>
+        <a href="19JS-Arrays2Example1.html">Ver Ejemplo1</a>
+        
+        
+        <h3>Accessing the Last Array Element</h3>
+        <a href="19JS-Arrays2Example2.html">Ver Ejemplo2</a>
+        
+        
+        <h3>Looping Array Elements</h3>
+        <p>The best way to loop through an array, is using a <b>for</b> loop:</p>
+        <p id="demo2" style="background-color:Orange;"></p>
+        
+        <p>You can also use the <b>Array.forEach()</b> function:</p>
+        <a href="19JS-Arrays2Example3.html">Ver Ejemplo3</a>
+        
+        
+        <h3>Adding Array Elements</h3>
+        <p>The easiest way to add a new element to an array is using the <b>push()</b> method:</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo3" style="background-color:Orange;"></p>
+    
+        <p>New element can also be added to an array using the <b>length</b> property:</p>
+        <button onclick="myFunction2()">Try it</button>
+        <p id="demo4" style="background-color:Orange;"></p>
+        
+        <div style="background-color: lightcoral;">
+            <p><b>WARNING!</b></p>
+            <p>Adding elements with high indexes can create undefined "holes" in an array:</p>
+        </div>
+        <p id="demo5" style="background-color:Orange;"></p>
+
+       
+        <h3>Associative Arrays</h3>
+        <p>Many programming languages support arrays with named indexes.</p>
+        <p>Arrays with named indexes are called associative arrays (or hashes).</p>
+        <p>JavaScript does not support arrays with named indexes.</p>
+        <p>In JavaScript, arrays always use numbered indexes.</p>
+        <p id="demo6" style="background-color:Orange;"></p>
+        
+        <div style="background-color: lightcoral;">
+            <p><b>WARNING!</b></p>
+            <p>If you use a named indexes, JavaScript will redefine the array to a standard object.</p>
+            <p>After that, some array methods and properties will produce <b>incorrect results</b>:</p>
+        </div>
+        <p id="demo7" style="background-color:Orange;"></p>
+        
+        <script>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            var text, fLen, i;
+            var frutas = ["Cambur", "Naranja", "Manzana", "Mango"];
+            
+            var ciudades = ["Mérida", "Pto. Ordaz", "Maturín", "El Tigre"];
+            var texto, cLong, j;
+            
+            var person = [];
+            var persona2 = [];
+            
+            // The length Property
+            fLen = fruits.length;
+            document.getElementById("demo").innerHTML = fLen;
+            text = "<ul>";
+            // Looping Array Elements
+            for (i = 0; i < fLen; i++) {
+                text += "<li>" + fruits[i] + "</li>";
+            }
+            text += "</ul>";
+            document.getElementById("demo2").innerHTML = text;
+            
+            document.getElementById("demo3").innerHTML = fruits;
+            document.getElementById("demo4").innerHTML = frutas;
+            
+            ciudades[6] = "Lagunillas";
+            cLong = ciudades.length;
+            texto = "";
+            for (j = 0; j < cLong; j++) {
+                texto += ciudades[j] + "<br>";
+            }
+            document.getElementById("demo5").innerHTML = texto;
+            
+            // Associative Arrays
+            // In JavaScript, arrays always use numbered indexes.
+            person[0] = "John";
+            person[1] = "Doe";
+            person[2] = 46; 
+            document.getElementById("demo6").innerHTML = 
+                person[0] + " " + person.length;
+            
+            // Associative Arrays
+            // In JavaScript, if you use named indexes will produce incorrect results.
+            persona2["firstName"] = "Rosa";
+            persona2["lastName"] = "Cáceres";
+            persona2["age"] = 50; 
+            document.getElementById("demo7").innerHTML = 
+                persona2[0] + " " + persona2.length;
+            
+            
+            function myFunction() {
+                fruits.push("Lemon"); // adds a new element (Lemon) to fruits 
+                document.getElementById("demo3").innerHTML = fruits;
+            }
+            
+            function myFunction2() {
+                frutas[frutas.length]= "Limón"; // adiciona un nuevo elemento (Límón) a frutas
+                document.getElementById("demo4").innerHTML = frutas;
+            }
+        </script>
+
+    </body>
+</html>

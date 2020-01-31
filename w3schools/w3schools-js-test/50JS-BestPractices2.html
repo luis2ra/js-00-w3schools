@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
+    <body>
+        <h1>JavaScript Best Practices - Part 2</h1>
+        
+        <a href="50JS-BestPractices1.html">Back go...</a>
+        
+        <h2>Never Declare Number, String, or Boolean Objects</h2>
+        <p>Always treat numbers, strings, or booleans as primitive values. Not as objects.</p>
+        <p>Declaring these types as objects, slows down execution speed, and produces nasty side effects:</p>
+        <a href="50JS-BestPracticesExample01.html">Ver Ejemplo01</a>
+        <p>Or even worse:</p>
+        <a href="50JS-BestPracticesExample02.html">Ver Ejemplo02</a>
+        
+        
+        <h2>Don't Use new Object()</h2>
+        <ul>
+            <li>Use <span style="color: red;">{}</span> instead of <span style="color: red;">new Object()</span></li>
+            <li>Use <span style="color: red;">""</span> instead of <span style="color: red;">new String()</span></li>
+            <li>Use <span style="color: red;">0</span> instead of <span style="color: red;">new Number()</span></li>
+            <li>Use <span style="color: red;">false</span> instead of <span style="color: red;">new Boolean()</span></li>
+            <li>Use <span style="color: red;">[]</span> instead of <span style="color: red;">new Array()</span></li>
+            <li>Use <span style="color: red;">/()/</span> instead of <span style="color: red;">new RegExp()</span></li>
+            <li>Use <span style="color: red;">function (){}</span> instead of <span style="color: red;">new Function()</span></li>
+        </ul>
+        <a href="50JS-BestPracticesExample03.html">Ver Ejemplo03</a>
+        
+        
+        <h2>Beware of Automatic Type Conversions</h2>
+        <p>Beware that numbers can accidentally be converted to strings or NaN (Not a Number).</p>
+        <p>JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:</p>
+        <a href="50JS-BestPracticesExample04.html">Ver Ejemplo04</a>
+        <p>When doing mathematical operations, JavaScript can convert numbers to strings:</p>
+        <a href="50JS-BestPracticesExample05.html">Ver Ejemplo05</a>
+        <p>Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):</p>
+        <a href="50JS-BestPracticesExample06.html">Ver Ejemplo06</a>
+        
+        
+        <h2>Use === Comparison</h2>
+        <p>The == comparison operator always converts (to matching types) before comparison.</p>
+        <p>The === operator forces comparison of values and type: </p>
+        <a href="50JS-BestPracticesExample07.html">Ver Ejemplo07</a>
+        
+        
+        <h2>Use Parameter Defaults</h2>
+        <p>If a function is called with a missing argument, the value of the missing argument is set to undefined.</p>
+        <p>Undefined values can break your code. It is a good habit to assign default values to arguments.</p>
+        <a href="50JS-BestPracticesExample08.html">Ver Ejemplo08</a>
+        
+        <p>Read more about function parameters and arguments at <a href="#">Function Parameters</a>.</p>
+        
+        
+        <h2>End Your Switches with Defaults</h2>
+        <p>Always end your <span style="color: red;">switch</span> statements with a <span style="color: red;">default</span>. Even if you think there is no need for it.</p>
+        <a href="50JS-BestPracticesExample09.html">Ver Ejemplo09</a>
+        
+        
+        <h2>Avoid Using eval()</h2>
+        <p>The <span style="color: red;">eval()</span> function is used to run text as code. In almost all cases, it should not be necessary to use it.</p>
+        <p>Because it allows arbitrary code to be run, it also represents a security problem.</p>
+        
+        <script>
+            
+        </script>
+    </body>
+</html>

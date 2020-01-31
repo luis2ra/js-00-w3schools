@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <h2>JavaScript Versions</h2>
+        <p>JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997.</p>
+        <p>ECMAScript is the official name of the language.</p>
+        <p>From 2015 ECMAScript is named by year (ECMAScript 2015).</p>
+        
+        <h5>ECMAScript is often abbreviated to ES.</h5>
+        
+        <h2>Browser Support</h2>
+        <p>ECMAScript 3 is fully supported in all browsers.</p>
+        <p>ECMAScript 5 is fully supported in all modern browsers.</p>
+        
+        <h2>JavaScript / ECMAScript</h2>
+        <p><b>JavaScript</b> was developed for Netscape. Netscape 2 was the first browser to run JavaScript.</p>
+        <p>After Netscape the Mozilla foundation continued to develop JavaScript for the Firefox browser.</p>
+        <p>The latest JavaScript version was 1.8.5. (Identical to ECMAScript 5).</p>
+        
+        <p><b>ECMAScript</b> was developed by ECMA International after the organization adopted JavaScript.</p>
+        <p>The first edition of ECMAScript was released in 1997.</p>
+        
+        <script>
+            var ES1 = !!(Array.prototype && Array.prototype.join),
+                ES3 = !!(Array.prototype && Array.prototype.pop),
+                ES51 = (function() {'use strict'; return !this; })(),
+                ES6 = !!Object.assign,
+                ES7 = !!(Array.prototype && Array.prototype.includes);
+                /*
+                var ES51    = Modernizr.es5,
+                ES6     = Modernizr.es6object;
+                ES7     = false;
+                */
+            if(ES7){
+                alert('Tu navegador contiene características mínimas de ECMAScript 7');
+            }else if(ES6){
+                alert('Tu navegador contiene características mínimas de ECMAScript 6');
+            }else if(ES51){
+                alert('Tu navegador tiene soporte para ECMAScript 5.1');
+            }else if(ES3){
+                alert('Tu navegador contiene características de ECMAScript 3');
+            }else if(ES1){
+                alert('Tu navegador contiene características de ECMAScript 1');
+            }else{
+                alert('Tu navegador contiene características de ECMAScript desconocida');
+            }
+        </script>
+    </body>
+</html>

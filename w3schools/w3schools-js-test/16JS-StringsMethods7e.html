@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript String Methods</h2>
+
+        <p>Replace all occurrences of "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+        <button onclick="myFunction()">Try it</button>
+
+        <p id="demo" style="background-color:Orange;">Please visit Microsoft and Microsoft!</p>
+
+        <script>
+            function myFunction() {
+                var str = document.getElementById("demo").innerHTML; 
+                var txt = str.replace(/Microsoft/g,"W3Schools");
+                document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+        
+        <p><strong>Note:</strong> To replace all matches, use a regular expression with a /g flag (global match). Note that regular expressions are written without quotes.</p>
+
+    </body>
+</html>

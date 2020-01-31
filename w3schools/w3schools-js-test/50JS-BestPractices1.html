@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
+    <body>
+        <h1>JavaScript Best Practices</h1>
+    
+        <p><b>Avoid global variables, avoid <span style="color: red;">new</span>, avoid <span style="color: red;">==</span>, avoid <span style="color: red;">eval()</span></b></p>
+        
+        <h3>Summary</h3>
+        <ul>
+            <li>Avoid Global Variables</li>
+            <li>Always Declare Local Variables</li>
+            <li>Declarations on Top</li>
+            <li>Initialize Variables</li>
+            <li>Never Declare Number, String, or Boolean Objects</li>
+            <li>Don't Use new Object()</li>
+            <li>Beware of Automatic Type Conversions</li>
+            <li>Use === Comparison</li>
+            <li>Use Parameter Defaults</li>
+            <li>End Your Switches with Defaults</li>
+            <li>Avoid Using eval()</li>
+        </ul>
+        
+        <h2>Avoid Global Variables</h2>
+        <p>Minimize the use of global variables.</p>
+        <p>This includes all data types, objects, and functions.</p>
+        <p>Global variables and functions can be overwritten by other scripts.</p>
+        <p>Use local variables instead, and learn how to use  <a href="#">closures.</a></p>
+        
+        <h2>Always Declare Local Variables</h2>
+        <p>All variables used in a function should be declared as local variables.</p>
+        <p>Local variables must be declared with the var keyword or the let keyword, otherwise they will become global variables.</p>
+        
+        <div style="background-color: lightgoldenrodyellow;">
+            <p>Strict mode does not allow undeclared variables.</p>
+        </div>
+        
+        <h2>Declarations on Top</h2>
+        <p>It is a good coding practice to put all declarations at the top of each script or function.</p>
+        <p>This will:</p>
+        <ul>
+            <li>Give cleaner code</li>
+            <li>Provide a single place to look for local variables</li>
+            <li>Make it easier to avoid unwanted (implied) global variables</li>
+            <li>Reduce the possibility of unwanted re-declarations</li>
+        </ul>
+        
+        <div style="background-color: lightyellow;">
+            <p>By default, JavaScript moves all declarations to the top (<a href="#">JavaScript Hoisting</a>).</p>
+        </div>
+        
+        <h2>Initialize Variables</h2>
+        <p>It is a good coding practice to initialize variables when you declare them.</p>
+        <p>This will:</p>
+        <ul>
+            <li>Give cleaner code</li>
+            <li>Provide a single place to initialize variables</li>
+            <li>Avoid undefined values</li>
+        </ul>
+        
+        <div style="background-color: lightyellow;">
+            <p>Initializing variables provides an idea of the intended use (and intended data type).</p>
+        </div>
+        <a href="50JS-BestPractices2.html">continue...</a>
+        
+        <script>
+            
+        </script>
+    </body>
+</html>

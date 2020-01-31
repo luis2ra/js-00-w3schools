@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript While Loop</h2>
+
+        <p>Loops can execute a block of code as long as a specified condition is true.</p>
+        
+        <h3>The While Loop</h3>
+        <p>The while loop loops through a block of code as long as a specified condition is true. In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        <h3>The Do/While Loop</h3>
+        <p>The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.</p>
+        <p id="demo2" style="background-color:Orange;"></p>
+        
+        <h3>Comparing For and While</h3>
+        <p>If you have read the previous chapter, about the for loop, you will discover that a while loop is much the same as a for loop, with statement 1 and statement 3 omitted. The loop in this example uses a for loop to collect the car names from the cars array:</p>
+        <p id="demo3a" style="background-color:Orange;"></p>
+        
+        <p>The loop in this example uses a while loop to collect the car names from the cars array:</p>
+        <p id="demo3b" style="background-color:Orange;"></p>
+        
+        <script>
+            var text = "";
+            var i = 0;
+            
+            var text2 = "";
+            var j = 0;
+            
+            var cars3a = ["BMW", "Volvo", "Saab", "Ford"];
+            var k = 0;
+            var text3a = "";
+            
+            var cars3b = ["BMW", "Volvo", "Saab", "Ford"];
+            var k_ = 0;
+            var text3b = "";
+            
+            while (i < 10) {
+                text += "<br>The number is " + i;
+                i++;
+            }
+            document.getElementById("demo").innerHTML = text;
+            
+            do {
+                text2 += "<br>The number is " + j;
+                j++;
+            }
+            while (j < 10);  
+            document.getElementById("demo2").innerHTML = text2;
+            
+            for (;cars3a[k];) {
+                text3a += cars3a[k] + "<br>";
+                k++;
+            }
+            document.getElementById("demo3a").innerHTML = text3a;
+            
+            while (cars3b[k_]) {
+                text3b += cars3b[k_] + "<br>";
+                k_++;
+            }
+            document.getElementById("demo3b").innerHTML = text3b;
+        </script>
+
+    </body>
+</html> 

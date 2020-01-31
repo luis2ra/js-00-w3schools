@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Number Methods</h2>
+        
+        <h3>Number Methods and Properties</h3>
+        <p>Primitive values (like 3.14 or 2014), cannot have properties and methods (because they are not objects). But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.</p>
+
+        <p>The <strong>toString()</strong> method converts a number to a string.</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        <p>The <strong>toExponential()</strong> method returns a string, with the number rounded and written using exponential notation.</p>
+
+        <p>An optional parameter defines the number of digits behind the decimal point.</p>
+        <p id="demo2" style="background-color:Orange;"></p>
+        
+        <p>The <strong>toFixed()</strong> method rounds a number to a given number of digits. For working with money, toFixed(2) is perfect.</p>
+        <p id="demo3" style="background-color:Orange;"></p>
+
+        <script>
+            var x = 123;
+            var y = 9.656;
+            
+            document.getElementById("demo").innerHTML =
+                x.toString() + "<br>" +
+               (123).toString() + "<br>" +
+               (100 + 23).toString();
+            document.getElementById("demo2").innerHTML =
+                y.toExponential() + "<br>" + 
+                y.toExponential(2) + "<br>" +
+                y.toExponential(4) + "<br>" + 
+                y.toExponential(6);
+            document.getElementById("demo3").innerHTML =
+                y.toFixed(0) + "<br>" +
+                y.toFixed(2) + "<br>" +
+                y.toFixed(4) + "<br>" +
+                y.toFixed(6);
+        </script>
+
+    </body>
+</html>

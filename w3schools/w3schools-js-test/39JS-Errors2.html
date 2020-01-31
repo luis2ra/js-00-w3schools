@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Errors - Throw and Try to Catch</h2>
+        
+        <h3>Input Validation Example</h3>
+
+        <p>This example examines input. If the value is wrong, an exception (err) is thrown.</p>
+        
+        <p>The exception (err) is caught by the catch statement and a custom error message is displayed.</p>
+        
+        <p>Please input a number between 5 and 10:</p>
+
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">Test Input</button>
+        <p id="message" style="background-color:Orange;"></p>
+        
+        <script>
+            function myFunction() {
+                var message, x;
+                
+                message = document.getElementById("message");
+                message.innerHTML = "";
+                x = document.getElementById("demo").value;
+                
+                try {
+                    if(x == "") throw "empty";
+                    if(isNaN(x)) throw "not a number";
+                    x = Number(x);
+                    if(x < 5) throw "too low";
+                    if(x > 10) throw "too high";
+                }
+                catch(err) {
+                    message.innerHTML = "Input is " + err;
+                }
+            }    
+        </script>
+        
+    </body>
+</html

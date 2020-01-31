@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
+    <body>
+        <h2>JavaScript Performance</h2>
+        <p>How to speed up your JavaScript code.</p>
+        
+        <h3>1.- Reduce Activity in Loops</h3>
+        <p>Loops are often used in programming.</p>
+        <p>Each statement in a loop, including the for statement, is executed for each iteration of the loop.</p>
+        <p>Statements or assignments that can be placed outside the loop will make the loop run faster.</p>
+        <image src="img/performance1.png"></image>
+        <p>The bad code accesses the length property of an array each time the loop is iterated.</p>
+        <p>The better code accesses the length property outside the loop and makes the loop run faster.</p>
+        
+        <h3>2.- Reduce DOM Access</h3>
+        <p>Accessing the HTML DOM is very slow, compared to other JavaScript statements. If you expect to access a DOM element several times, access it once, and use it as a local variable:</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        
+        <h3>3.- Reduce DOM Size</h3>
+        <p>Keep the number of elements in the HTML DOM small.</p>
+        <p>This will always improve page loading, and speed up rendering (page display), especially on smaller devices.</p>
+        <p>Every attempt to search the DOM (like getElementsByTagName) will benefit from a smaller DOM.</p>
+        
+        
+        <h3>4.- Avoid Unnecessary Variables</h3>
+        <p>Don't create new variables if you don't plan to save values.</p>
+        <image src="img/performance2.png"></image>
+        
+        
+        <h3>5.- Delay JavaScript Loading</h3>
+        <p>Putting your scripts at the bottom of the page body lets the browser load the page first.</p>
+        <p>While a script is downloading, the browser will not start any other downloads. In addition all parsing and rendering activity might be blocked.</p>
+        <div style="background-color: lightgoldenrodyellow;">
+            <p>The HTTP specification defines that browsers should not download more than two components in parallel.</p>
+        </div>
+        <p>An alternative is to use <span style="color: red;">defer="true"</span> in the script tag. The defer attribute specifies that the script should be executed after the page has finished parsing, but it only works for external scripts.</p>
+        <p>If possible, you can add your script to the page by code, after the page has loaded:</p>
+        <image src="img/performance3.png"></image>
+        
+        
+        <h3>6.- Avoid Using with</h3>
+        <p>Avoid using the <span style="color: red;">with</span> keyword. It has a negative effect on speed. It also clutters up JavaScript scopes.</p>
+        <p>The <span style="color: red;">with</span> keyword is <b>not allowed</b> in strict mode.</p>
+        
+        <script>
+            var obj;
+            
+            obj = document.getElementById("demo");
+            obj.innerHTML = "Uso de variable para acceder a un elemento del DOM";
+        </script>
+    </body>
+</html>

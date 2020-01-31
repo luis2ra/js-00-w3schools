@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>JavaScript Switch Statement</h2>
+
+        <p>The <b>switch</b> statement is used to perform different actions based on different conditions.</p>
+        
+        <h3>The JavaScript Switch Statement</h3>
+        <p>This example uses the weekday number to calculate the weekday name:</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        <h3>The break Keyword</h3>
+        <p>When JavaScript reaches a break keyword, it breaks out of the switch block. A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.</p>
+        
+        <h3>The default Keyword</h3>
+        <p>The default keyword specifies the code to run if there is no case match:</p>
+        <p id="demo2a" style="background-color:Orange;"></p>
+        
+        <p>The <b>default</b> case does not have to be the last case in a switch block:</p>
+        <p id="demo2b" style="background-color:Orange;"></p>
+        
+        <h3>Common Code Blocks</h3>
+        <p>Sometimes you will want different switch cases to use the same code. In this example case 4 and 5 share the same code block, and 0 and 6 share another code block:</p>
+        <p id="demo3" style="background-color:Orange;"></p>
+        
+        <script>
+            var day;
+            var text;
+            
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "Sunday";
+                    break;
+                case 1:
+                    day = "Monday";
+                    break;
+                case 2:
+                    day = "Tuesday";
+                    break;
+                case 3:
+                    day = "Wednesday";
+                    break;
+                case 4:
+                    day = "Thursday";
+                    break;
+                case 5:
+                    day = "Friday";
+                    break;
+                case  6:
+                    day = "Saturday";
+            }
+            document.getElementById("demo").innerHTML = "Today is " + day;
+            
+            switch (new Date().getDay()) {
+                case 6:
+                    text = "Today is Saturday";
+                    break;
+                case 0:
+                    text = "Today is Sunday";
+                    break;
+                default:
+                    text = "Looking forward to the Weekend";
+            }
+            document.getElementById("demo2a").innerHTML = text;
+            
+            switch (new Date().getDay()) {
+                default:
+                    text = "Looking forward to the Weekend";
+                    break;
+                case 6:
+                    text = "Today is Saturday";
+                    break;
+                case 0:
+                    text = "Today is Sunday";
+            }
+            document.getElementById("demo2b").innerHTML = text;
+            
+            switch (new Date().getDay()) {
+                case 4:
+                case 5:
+                    text = "Soon it is Weekend";
+                    break;
+                case 0:
+                case 6:
+                    text = "It is Weekend";
+                    break;
+                default:
+                    text = "Looking forward to the Weekend";
+            }
+            document.getElementById("demo3").innerHTML = text;
+     
+        </script>
+
+    </body>
+</html> 

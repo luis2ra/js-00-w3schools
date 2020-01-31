@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
+    <body>
+
+        <h2>JavaScript Arrays - Part 3</h2>
+
+        <h3>The Difference Between Arrays and Objects</h3>
+        <p>In JavaScript, <b>arrays</b> use <b>numbered indexes.</b></p>
+        <p>In JavaScript, <b>objects</b> use <b>named indexes.</b></p>
+        <div style="background-color: lightgoldenrodyellow;">
+            <p>Arrays are a special kind of objects, with numbered indexes.</p>
+        </div>
+        
+        
+        <h3>When to Use Arrays. When to use Objects.</h3>
+        <ul>
+            <li>JavaScript does not support associative arrays.</li>
+            <li>You should use <b>objects</b> when you want the element names to be <b>strings (text).</b></li>
+            <li>You should use <b>arrays</b> when you want the element names to be <b>numbers.</b></li>
+        </ul>
+        
+        
+        <h3>Avoid new Array()</h3>
+        <p>There is no need to use the JavaScript's built-in array constructor <b>new</b> Array().</p>
+        <p><b>Use <span style="color: red;">[]</span> instead.</b></p>
+        <p>These two different statements both create a new empty array named points:</p>
+        <div class="w3-example">
+            <div class="w3-code">
+                var points = new Array();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="color: green">// Bad</span><br>
+                var points = [];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="color: green">// Good</span>&nbsp;
+            </div>
+        </div>
+        <p>These two different statements both create a new array containing 6 numbers:</p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
+        <p>The <b>new</b> keyword only complicates the code. It can also produce some unexpected results:</p>
+        <div class="w3-example">
+            <div class="w3-code">
+                var points = new Array(40, 100);&nbsp;&nbsp; 
+                <span style="color: green">// Creates an array with two elements (40 and 100)</span>
+            </div>
+        </div>
+        
+        <p>What if I remove one of the elements?</p>
+        <p id="demo2" style="background-color:Orange;"></p>
+        
+        
+        
+        <h3>How to Recognize an Array</h3>
+        <p>A common question is: How do I know if a variable is an array?</p>
+        <p>The problem is that the JavaScript operator <b>typeof</b> returns "<b>object</b>":</p>
+        <p id="demo3" style="background-color:Orange;"></p>
+        <p>The typeof operator returns object because a JavaScript array is an object.</p>
+        
+        <h4>Solution 1:</h4>
+        <p>To solve this problem ECMAScript 5 defines a new method <b>Array.isArray()</b>:</p>
+        <p id="demo4" style="background-color:Orange;"></p>
+        <p>The problem with this solution is that ECMAScript 5 is not supported in older browsers.</p>
+        
+        <h4>Solution 2:</h4>
+        <p>To solve this problem you can create your own <b>isArray()</b> function:</p>
+        <p id="demo5" style="background-color:Orange;"></p>
+        <p id="demo5b" style="background-color:Orange;"></p>
+        <p>The function above always returns true if the argument is an array.</p>
+        <p>Or more precisely: it returns true if the object prototype contains the word "Array".</p>
+        
+        <h4>Solution 3:</h4>
+        <p>The <b>instanceof</b> operator returns true if an object is created by a given constructor:</p>
+        <p id="demo6" style="background-color:Orange;"></p>
+        
+        <script>
+            /**
+                Avoid using new Array(). Use [] instead.
+            **/
+            //var points = new Array(40, 100, 1, 5, 25, 10);    // Bad
+            var points = [40, 100, 1, 5, 25, 10];               // Good
+            
+            var puntos = new Array(40);     // Creates an array with 40 undefined elements 
+            
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+             
+            document.getElementById("demo").innerHTML = points[0];
+            document.getElementById("demo2").innerHTML = puntos[0];
+            
+            // The operator typeof returns "object"
+            document.getElementById("demo3").innerHTML = typeof fruits;
+            
+            // Solution 1: ECMAScript 5 defines a new method Array.isArray()
+            document.getElementById("demo4").innerHTML = Array.isArray(fruits);
+            // Solution 2: you can create your own isArray() function
+            document.getElementById("demo5").innerHTML = isArray(fruits);
+            // Solution 3: The instanceof operator returns true when used on an array
+            document.getElementById("demo6").innerHTML = fruits instanceof Array;
+            
+            function isArray(myArray) {
+                document.getElementById("demo5b").innerHTML = 
+                    myArray.constructor.toString().indexOf("Array");
+                
+                return myArray.constructor.toString().indexOf("Array") > -1;
+            }
+        </script>
+
+    </body>
+</html>
