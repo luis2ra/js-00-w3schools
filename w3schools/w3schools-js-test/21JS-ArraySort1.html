@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="css/w3css/4/w3.css">
+    </head>
     <body>
 
         <h2>JavaScript Sorting Arrays</h2>
 
+       
         <h3>Sorting an Array</h3>
         <p>The <b>sort()</b> method sorts an array alphabetically:</p>
         <button onclick="myFunctionSort()">Try it</button>
-        <p id="demo"></p>
+        <p id="demo" style="background-color:Orange;"></p>
+        
         
         <h3>Reversing an Array</h3>
         <p>The <b>reverse()</b> method reverses the elements in an array. You can use it to sort an array in descending order:</p>
         <button onclick="myFunctionReverse()">Try it</button>
-        <p id="demo2"></p>
+        <p id="demo2" style="background-color:Orange;"></p>
+        
         
         <h3>Numeric Sort</h3>
-        <p>By default, the sort() function sorts values as strings. If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1". Because of this, the sort() method will produce incorrect result when sorting numbers.</p>
+        <p>By default, the <b>sort()</b> function sorts values as strings. If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1". Because of this, the sort() method will produce incorrect result when sorting numbers.</p>
         
         <p>Click the button to sort the array in ascending order:</p>
         <button onclick="myFunctionNumericSort1()">Try it</button>
-        <p id="demo3"></p>
+        <p id="demo3" style="background-color:Orange;"></p>
         <p>Click the button to sort the array in descending order:</p>
         <button onclick="myFunctionNumericSort2()">Try it</button>
-        <p id="demo4"></p>
+        <p id="demo4" style="background-color:Orange;"></p>
+        
         
         <h3>The Compare Function</h3>
+        <p>The purpose of the compare function is to define an alternative sort order.</p>
+        <p>The compare function should return a negative, zero, or positive value, depending on the arguments:</p>
+        <div class="w3-example">
+            <div class="w3-code">
+                <span style="color: blue">function</span>(a, b){<span style="color: blue">return</span> a ‐ b}
+            </div>
+        </div>
+        <p>When the <b>sort()</b> function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.</p>
+        <p>If the result is negative <span style="color: red">a</span> is sorted before <span style="color: red">b</span>.</p>
+        <p>If the result is positive <span style="color: red">b</span> is sorted before <span style="color: red">a</span>.</p>
+        <p>If the result is <span style="color: red">0</span> no changes are done with the sort order of the two values.</p>
+        
         <p>Click the buttons to sort the array alphabetically or numerically:</p>
         <button onclick="myFunction1()">Sort Alphabetically</button>
         <button onclick="myFunction2()">Sort Numerically</button>
-        <p id="demo5"></p>
-        <p id="demo5a"></p>
-        <p id="demo5b"></p>
-        <p id="demo5c"></p>
+        <p id="demo5" style="background-color:Orange;"></p>
+        <p id="demo5a" style="background-color:Orange;"></p>
+        <p id="demo5b" style="background-color:Orange;"></p>
+        <p id="demo5c" style="background-color:Orange;"></p>
         
         <script>
             var fruits = ["Banana", "Orange", "Apple", "Mango"];
-            var points = [40, 100, 1, 5, 25, 10];
+            var points = [40, 100, 77, 5, 25, 10, 1];
             
             document.getElementById("demo").innerHTML = fruits;
             document.getElementById("demo2").innerHTML = fruits;
@@ -54,18 +73,26 @@
                 fruits.reverse();   // aplicamos luego el método reverse()
                 document.getElementById("demo2").innerHTML = fruits;
             }
+            
+            // to sort the array in ascending order
             function myFunctionNumericSort1() {
                 points.sort(function(a, b){return a - b});
                 document.getElementById("demo3").innerHTML = points;
             }
+            
+            // to sort the array in descending order
             function myFunctionNumericSort2() {
                 points.sort(function(a, b){return b - a});
                 document.getElementById("demo4").innerHTML = points;
             }
+            
+            // Sort Alphabetically
             function myFunction1() {
                 points.sort();
                 document.getElementById("demo5").innerHTML = points;
             }
+            
+            // Sort Numerically
             function myFunction2() {
                 points.sort(function(a, b){
                     document.getElementById("demo5a").innerHTML = "Primer elemento: " + a;
